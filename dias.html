@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buenos días</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #e91e63;
+        }
+        #mensaje {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="boton">Presióname</button>
+    <div id="mensaje">¡Que te den buen día! 🎉</div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1"></script>
+    <script>
+        document.getElementById("boton").addEventListener("click", function() {
+            document.getElementById("mensaje").style.display = "block";
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        });
+    </script>
+</body>
+</html>
