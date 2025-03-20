@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diana y el día que no quería ser</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #ffdde1);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #e91e63;
+            transform: scale(1.1);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .activar-bomba {
+            animation: mecha 1s infinite, vibrar 0.5s infinite;
+        }
+
+        @keyframes mecha {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes vibrar {
+            0% { transform: translateX(-2px); }
+            50% { transform: translateX(2px); }
+            100% { transform: translateX(-2px); }
+        }
+
+        #mensaje {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+            box-sizing: border-box;
+            opacity: 0; /* Inicialmente invisible */
+            visibility: hidden; /* Evita que el usuario interactúe antes de aparecer */
+            transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+        }
+
+        #mensaje.mostrar {
+            opacity: 1; /* Se hace visible */
+            visibility: visible;
+        }
+
+        #contenido-mensaje {
+            max-width: 80%;
+            max-height: 80%;
+            overflow: auto;
+            white-space: pre-line;
+            padding: 20px;
+            
+            /* Ocultar la barra de desplazamiento en navegadores WebKit (Chrome, Safari) */
+            scrollbar-width: none; /* Para Firefox */
+            -ms-overflow-style: none; /* Para Internet Explorer y Edge */
+        }
+
+        #contenido-mensaje::-webkit-scrollbar {
+            display: none; /* Para Chrome, Safari y navegadores basados en WebKit */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <button id="boton">🎉 ¡Presióname! 🎉</button>
+    
+    <div id="mensaje">
+        <div id="contenido-mensaje">
+            🌟 "Querida Ahijada" 🌟
+            
+            Los nervios son como esos perros callejeros que ladran fuerte pero no muerden. Uno camina por la acera con la seguridad de quien sabe adónde va, pero ahí están ellos, gruñendo desde la sombra de una puerta, haciéndote dudar de cada paso. Lo que no saben, los pobres, es que tú no viniste a detenerte.
+
+            Porque ya has caminado demasiado, porque esta plaza no es un regalo ni una casualidad, sino la forma en que el mundo te devuelve todo lo que has construido. Respira. Escucha el eco de tu propio esfuerzo en cada latido. Piensa en los niños que algún día recordarán tu voz, en las manos pequeñas que escribirán su primer nombre bajo tu mirada atenta.
+            
+            Lo que es tuyo ya te está esperando. No se trata de suerte, sino de la certeza de que este camino lo hiciste a fuerza de pasos. Hoy, los nervios te dirán que dudes. Tú míralos, sonríeles, diles que sí, que claro, que los escuchas. Pero sigue adelante. Porque al final del pasillo, al final del examen, al final de todo esto, está la maestra que ya eres.
+            
+            Y nada, ni nadie, puede quitarte eso.
+           
+            🌿✨💫
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1"></script>
+    <script>
+        document.getElementById("boton").addEventListener("click", function() {
+            let audio = new Audio('https://www.fesliyanstudios.com/play-mp3/4382');
+            audio.play();
+
+            document.getElementById("boton").innerHTML = "💥 ¡BOOM! 💥";
+            document.getElementById("boton").classList.add('activar-bomba');
+            
+            setTimeout(function() {
+                
+                
+                let count = 300;
+                let defaults = { origin: { y: 0.6 } };
+
+                function fire(particleRatio, opts) {
+                    confetti(Object.assign({}, defaults, opts, {
+                        particleCount: Math.floor(count * particleRatio)
+                    }));
+                }
+
+                fire(0.25, { spread: 90 });
+                fire(0.2, { spread: 60 });
+                fire(0.35, { spread: 120 });
+                fire(0.1, { spread: 150 });
+                fire(0.1, { spread: 180 });
+
+                setTimeout(() => {
+                    document.getElementById("mensaje").classList.add("mostrar"); // ✅ Aparece gradualmente
+
+                }, 500);
+            }, 1000);
+
+           
+            
+        });
+    </script>
+</body>
+</html>
