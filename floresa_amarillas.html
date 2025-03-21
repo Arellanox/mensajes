@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Una Flor para Ti 🌻</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            text-align: center;
+            color: #333;
+            background: linear-gradient(180deg, #f5f5dc, #ffeb3b);
+            background-attachment: fixed;
+            transition: background 1s ease-in-out;
+            overflow-x: hidden;
+        }
+        .container {
+            height: 600vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 10px;
+        }
+        .text-stage {
+            font-size: 24px;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateY(50px);
+            margin: 50vh 0;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+            max-width: 90%;
+            word-wrap: break-word;
+        }
+        .text-stage span {
+            font-size: 60px;
+            display: block;
+            margin-top: 10px;
+        }
+        #text5 {
+            margin-bottom: 100vh;
+        }
+
+        /* Diseño responsivo */
+        @media (max-width: 768px) {
+            .text-stage {
+                font-size: 20px;
+            }
+            .text-stage span {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-stage" id="text1">Todo comienza con una pequeña semilla... como cuando dos almas se encuentran. <br><span>🌱</span></div>
+        <div class="text-stage" id="text2">Al principio es frágil, pero con el tiempo y el cuidado adecuado, empieza a crecer. <br><span>🌿</span></div>
+        <div class="text-stage" id="text3">Se convierte en algo más fuerte, como los momentos que compartimos. <br><span>🌱</span></div>
+        <div class="text-stage" id="text4">Sus hojas se abren, como mi corazón cuando pienso en ti. <br><span>🍃</span></div>
+        <div class="text-stage" id="text5">Y un día, sin darme cuenta, floreció en algo hermoso... <br>como lo que siento por ti. 💛<br><span>🌻</span></div>
+    </div>
+    
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray(".text-stage").forEach((text, index) => {
+            gsap.to(text, {
+                opacity: 1,
+                y: 0,
+                duration: 1.5,
+                scrollTrigger: {
+                    trigger: text,
+                    start: "top 85%",
+                    end: "top 40%",
+                    scrub: true
+                }
+            });
+        });
+
+        // Animación del fondo
+        gsap.to("body", {
+            background: "linear-gradient(180deg, #f5f5dc, #ffeb3b, #fbc02d)", 
+            duration: 3,
+            scrollTrigger: {
+                trigger: ".container",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: true
+            }
+        });
+
+        // Asegurar que el último mensaje se vea por más tiempo
+        gsap.to("#text5", {
+            opacity: 1,
+            scale: 1.1,
+            duration: 2,
+            scrollTrigger: {
+                trigger: "#text5",
+                start: "top 80%",
+                end: "bottom 30%",
+                scrub: true
+            }
+        });
+
+    </script>
+</body>
+</html>
