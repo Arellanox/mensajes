@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Una Flor para Ti 🌻</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            text-align: center;
+            color: #333;
+            background: linear-gradient(180deg, #f5f5dc, #ffeb3b);
+            background-attachment: fixed;
+            transition: background 1s ease-in-out;
+            overflow-x: hidden;
+        }
+        .container {
+            height: 800vh; /* Ajustamos la altura del contenedor */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 10px;
+        }
+        .text-stage {
+            font-size: 24px;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateY(50px);
+            margin: 50vh 0;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+            max-width: 90%;
+            word-wrap: break-word;
+        }
+        .text-stage span {
+            font-size: 60px;
+            display: block;
+            margin-top: 10px;
+        }
+        /* Aseguramos que el último texto tenga suficiente espacio en dispositivos pequeños */
+        #text6 {
+            margin-bottom: 150vh; /* Reducimos el espacio final */
+        }
+
+        /* Diseño responsivo */
+        @media (max-width: 768px) {
+            .text-stage {
+                font-size: 18px;
+            }
+            .text-stage span {
+                font-size: 50px;
+            }
+            #text6 {
+                margin-bottom: 200vh; /* Ajustamos el espacio final en móviles */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-stage" id="text1">Todo comienza con una pequeña semilla... 🌱</div>
+        <div class="text-stage" id="text2">Con paciencia y cuidado, un brote empieza a nacer. 🌿</div>
+        <div class="text-stage" id="text3">Con el tiempo, se convierte en una planta fuerte. 🌱</div>
+        <div class="text-stage" id="text4">Las hojas se abren y la luz la hace crecer. 🍃</div>
+        <div class="text-stage" id="text5">Y un día, sin darte cuenta... has florecido. 🌻</div>
+        <div class="text-stage" id="text6">Eres luz, eres alegría, eres especial. Gracias por estar aquí. 💛</div>
+    </div>
+    
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray(".text-stage").forEach((text, index) => {
+            gsap.to(text, {
+                opacity: 1,
+                y: 0,
+                duration: 1.5,
+                scrollTrigger: {
+                    trigger: text,
+                    start: "top 90%", /* Ajustamos el comienzo de la animación */
+                    end: "top 50%",
+                    scrub: true
+                }
+            });
+        });
+
+        // Animación del fondo
+        gsap.to("body", {
+            background: "linear-gradient(180deg, #f5f5dc, #ffeb3b, #fbc02d)", 
+            duration: 3,
+            scrollTrigger: {
+                trigger: ".container",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: true
+            }
+        });
+
+        // Asegurar que el último mensaje se vea por más tiempo
+        gsap.to("#text6", {
+            opacity: 1,
+            scale: 1.1,
+            duration: 2,
+            scrollTrigger: {
+                trigger: "#text6",
+                start: "top 90%", /* Ajuste para móviles */
+                end: "top 50%",
+                scrub: true
+            }
+        });
+
+    </script>
+</body>
+</html>
