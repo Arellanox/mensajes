@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diana y el día que no quería ser</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffe4e1, #ffe9d6, #fdf5e6, #e0f7e9);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      flex-direction: column;
+      font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+      position: relative;
+      margin: 0;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 20px;
+      font-weight: bold;
+      background-color: #f88379; /* Coral suave */
+      color: white;
+      border: none;
+      border-radius: 25px;
+      box-shadow: 0 5px 15px rgba(248, 131, 121, 0.4);
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #ec6b68;
+      transform: scale(1.1);
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    .activar-bomba {
+      animation: mecha 1s infinite, vibrar 0.5s infinite;
+    }
+
+    @keyframes mecha {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes vibrar {
+      0% { transform: translateX(-2px); }
+      50% { transform: translateX(2px); }
+      100% { transform: translateX(-2px); }
+    }
+
+    #mensaje {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #5c3a2e;
+      font-size: 16px;
+      font-weight: normal;
+      text-align: center;
+      text-shadow: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 20px;
+      box-sizing: border-box;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+    }
+
+    #mensaje.mostrar {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #contenido-mensaje {
+      background-color: white;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 700px;
+      max-height: 80%;
+      overflow: auto;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      white-space: pre-line;
+      color: #5c3a2e;
+    }
+
+    #contenido-mensaje::-webkit-scrollbar {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <button id="boton">🌸 Presióname 🌸</button>
+
+  <div id="mensaje">
+    <div id="contenido-mensaje">
+      🌟 "Instrucciones para mirar a Mitzi sin que se rompa el mundo" 🌟
+      
+      (o se pinte una jirafa con tutú en la panadería de la esquina)
+
+      Primero, hay que saber que Mitzi no camina, flota, y no en el sentido de las nubes sino en el de los globos que no quieren irse pero tampoco quedarse del todo. Va con pinceles en los bolsillos y risas en los cordones de los zapatos. Uno no la ve llegar, pero de pronto hay una mariposa azul en el vidrio del local de abarrotes, y uno entiende.
+
+      Mitzi pinta. Pero no como quien pinta para cubrir, sino como quien revela lo que el vidrio no se atrevía a decir. Letras que bailan con una pierna en cursiva, flores que huelen a infancia, y ocasionalmente un dinosaurio tomando café con una estrella fugaz. Todo cabe si Mitzi lo imagina.
+
+      Dicen que va a ser maestra de kinder, como si eso no fuera también una forma de magia. Porque los niños no aprenden de ella, la recuerdan, como si ya la conocieran de antes, de un sueño, de un cuento, de un dibujo que hicieron sin saber por qué. Mitzi les enseña a no olvidar el asombro.
+
+      Y mientras tanto, sigue pintando el mundo —en pedacitos de vidrio, en miradas curiosas, en las esquinas donde los adultos ya no miran. Si usted la ve, no la interrumpa. Solo quédese muy quieto y tal vez, con suerte, ella le pinte una palabra en el pecho que usted no sabía que le hacía falta.
+      🌿✨💫
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1"></script>
+  <script>
+    document.getElementById("boton").addEventListener("click", function () {
+      let audio = new Audio('https://www.fesliyanstudios.com/play-mp3/4382');
+      audio.play();
+
+      const boton = document.getElementById("boton");
+      boton.innerHTML = "💖 ¡BOOM de ternura! 💖";
+      boton.classList.add('activar-bomba');
+
+      setTimeout(function () {
+        let count = 300;
+        let defaults = { origin: { y: 0.6 } };
+
+        function fire(particleRatio, opts) {
+          confetti(Object.assign({}, defaults, opts, {
+            particleCount: Math.floor(count * particleRatio)
+          }));
+        }
+
+        fire(0.25, { spread: 90 });
+        fire(0.2, { spread: 60 });
+        fire(0.35, { spread: 120 });
+        fire(0.1, { spread: 150 });
+        fire(0.1, { spread: 180 });
+
+        setTimeout(() => {
+          document.getElementById("mensaje").classList.add("mostrar");
+        }, 500);
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
