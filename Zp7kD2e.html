@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Correa</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffe4e1, #ffe9d6, #fdf5e6, #e0f7e9);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      flex-direction: column;
+      font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+      position: relative;
+      margin: 0;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 20px;
+      font-weight: bold;
+      background-color: #f88379; /* Coral suave */
+      color: white;
+      border: none;
+      border-radius: 25px;
+      box-shadow: 0 5px 15px rgba(248, 131, 121, 0.4);
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #ec6b68;
+      transform: scale(1.1);
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    .activar-bomba {
+      animation: mecha 1s infinite, vibrar 0.5s infinite;
+    }
+
+    @keyframes mecha {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes vibrar {
+      0% { transform: translateX(-2px); }
+      50% { transform: translateX(2px); }
+      100% { transform: translateX(-2px); }
+    }
+
+    #mensaje {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #5c3a2e;
+      font-size: 16px;
+      font-weight: normal;
+      text-align: center;
+      text-shadow: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 20px;
+      box-sizing: border-box;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+    }
+
+    #mensaje.mostrar {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #contenido-mensaje {
+      background-color: white;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 700px;
+      max-height: 80%;
+      overflow: auto;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      white-space: pre-line;
+      color: #5c3a2e;
+    }
+
+    #contenido-mensaje::-webkit-scrollbar {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <button id="boton">🌸 Presióname 🌸</button>
+
+  <div id="mensaje">
+    <div id="contenido-mensaje">
+      🌟 "La correa" 🌟
+      
+      Uno aprende a leer el mundo con los ojos, pero también con el corazón maleducado que insiste en buscar señales donde nadie más las ve. El mío, por ejemplo, se acostumbró a mirar el casillero 7 —ni el 6 ni el 8, el 7, que por algún motivo siempre parece inclinarse un poco hacia la izquierda, como si también él esperara.
+
+      Y no es el casillero en sí. No. Es la correa. Esa absurda, maravillosa, terquísima correa que se niega a entrar del todo. Siempre se queda afuera, medio atrapada entre la puerta y el aire, como un saludo sin terminar, como una frase que alguien no se animó a decir pero igual dejó flotando. A veces me descubro viéndola más de la cuenta, como si pudiera aprender algo de su constancia, de su frágil manera de decir: “ella estuvo aquí”.
+
+      Porque cuando no está —y eso es lo terrible—, cuando la chapa está cerrada y lisa, sin nada que interrumpa su superficie metálica, entonces lo sé. Sé que no vino. Y no necesito que me lo digan, no hace falta que nadie me avise. La ausencia se me anuncia en silencio, con la brutalidad de una puerta bien cerrada y la cobardía de una correa que no asoma. Ahí entiendo lo que ya sabía pero no quería admitir: que hoy no voy a verla, que hoy me va a faltar su risa en el pasillo, su forma de decir mi nombre como si estuviera inventándolo.
+
+      No sé cómo una cosa tan mínima puede doler tanto. Pero así son los rituales, ¿no? Uno les da poder sin querer, les entrega el alma poco a poco, y un día se da cuenta de que depende de un centímetro de tela para que el día tenga sentido.
+
+      A veces me acerco al casillero —haciéndome el distraído, claro, uno siempre tiene que guardar un poco de dignidad— y finjo que busco algo, pero en realidad lo único que quiero es verla ahí, colgando, desafiando a la cerradura, anunciando que ella llegó antes que yo. Y cuando está, respiro. No sé si ella lo sabe, no sé si alguna vez lo ha notado. Pero esa correa... esa correa me salva de la tristeza con una fidelidad que ni ella conoce.
+
+      Quizá algún día le cuente. O quizá no. Quizá siga amando en secreto ese pequeño trozo de ausencia que se convierte en milagro cuando está.
+      🌿✨💫
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1"></script>
+  <script>
+    document.getElementById("boton").addEventListener("click", function () {
+      let audio = new Audio('https://www.fesliyanstudios.com/play-mp3/4382');
+      audio.play();
+
+      const boton = document.getElementById("boton");
+      boton.innerHTML = " ¡BOOM! ";
+      boton.classList.add('activar-bomba');
+
+      setTimeout(function () {
+        let count = 300;
+        let defaults = { origin: { y: 0.6 } };
+
+        function fire(particleRatio, opts) {
+          confetti(Object.assign({}, defaults, opts, {
+            particleCount: Math.floor(count * particleRatio)
+          }));
+        }
+
+        fire(0.25, { spread: 90 });
+        fire(0.2, { spread: 60 });
+        fire(0.35, { spread: 120 });
+        fire(0.1, { spread: 150 });
+        fire(0.1, { spread: 180 });
+
+        setTimeout(() => {
+          document.getElementById("mensaje").classList.add("mostrar");
+        }, 500);
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
