@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz día del maestro</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffe4e1, #ffe9d6, #fdf5e6, #e0f7e9);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      flex-direction: column;
+      font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+      position: relative;
+      margin: 0;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 20px;
+      font-weight: bold;
+      background-color: #f88379; /* Coral suave */
+      color: white;
+      border: none;
+      border-radius: 25px;
+      box-shadow: 0 5px 15px rgba(248, 131, 121, 0.4);
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #ec6b68;
+      transform: scale(1.1);
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    .activar-bomba {
+      animation: mecha 1s infinite, vibrar 0.5s infinite;
+    }
+
+    @keyframes mecha {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes vibrar {
+      0% { transform: translateX(-2px); }
+      50% { transform: translateX(2px); }
+      100% { transform: translateX(-2px); }
+    }
+
+    #mensaje {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #5c3a2e;
+      font-size: 16px;
+      font-weight: normal;
+      text-align: center;
+      text-shadow: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 20px;
+      box-sizing: border-box;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+    }
+
+    #mensaje.mostrar {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #contenido-mensaje {
+      background-color: white;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 700px;
+      max-height: 80%;
+      overflow: auto;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      white-space: pre-line;
+      color: #5c3a2e;
+    }
+
+    #contenido-mensaje::-webkit-scrollbar {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <button id="boton">🌸 Presióname 🌸</button>
+
+  <div id="mensaje">
+    <div id="contenido-mensaje">
+      🌟 "El idioma secreto de los niños pequeños" 🌟
+      
+      A las maestras de preescolar como Mitzi no se les da un grupo. Se les entrega una selva: hay rugidos, colitas inquietas, mocos con alas, y mundos que caben en una caja de crayones. También hay reyes con coronas hechas de plastilina y princesas que no esperan ser rescatadas, sólo que les abrochen bien el mandil.
+
+      Mitzi no enseña, ella traduce. Traduce lo que dice un dibujo torcido, lo que llora un niño cuando no sabe por qué está llorando, lo que sueña una niña que acaba de inventar el color cuasiverde mariposa. Ella sabe que a veces el silencio no es tristeza, sino concentración de astronauta.
+
+      Cada día, entra a su aula como quien entra a un planeta nuevo. Nunca pisa fuerte, no vaya a romperse un castillo de bloques o una idea recién nacida.
+
+      Y cuando enseña a contar, no empieza por el uno, sino por el “cuántos besos necesitas hoy”. Cuando enseña letras, lo hace con nombres, con magia, con juegos que sólo entienden los que aún recuerdan cómo se ve el mundo desde un metro de altura.
+
+      Porque Mitzi no forma alumnos, forma alas. Y lo hace con paciencia de nube, con alegría de burbuja, con ternura de flor que se abre a las siete y media de la mañana.
+
+      Feliz Día del Maestro, Mitzi. Que nunca te falten cuentos, ni abrazos pegajosos, ni esas miradas que dicen: "ya entendí, pero no con la cabeza, sino con el corazón."
+      🌿✨💫
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1"></script>
+  <script>
+    document.getElementById("boton").addEventListener("click", function () {
+      let audio = new Audio('https://www.fesliyanstudios.com/play-mp3/4382');
+      audio.play();
+
+      const boton = document.getElementById("boton");
+      boton.innerHTML = "💖 ¡BOOM de ternura! 💖";
+      boton.classList.add('activar-bomba');
+
+      setTimeout(function () {
+        let count = 300;
+        let defaults = { origin: { y: 0.6 } };
+
+        function fire(particleRatio, opts) {
+          confetti(Object.assign({}, defaults, opts, {
+            particleCount: Math.floor(count * particleRatio)
+          }));
+        }
+
+        fire(0.25, { spread: 90 });
+        fire(0.2, { spread: 60 });
+        fire(0.35, { spread: 120 });
+        fire(0.1, { spread: 150 });
+        fire(0.1, { spread: 180 });
+
+        setTimeout(() => {
+          document.getElementById("mensaje").classList.add("mostrar");
+        }, 500);
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
