@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Querida Maestra</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    header, footer {
+      position: fixed;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      text-align: center;
+      background: #FFD400;
+      padding: 20px;
+    }
+
+    header {
+      top: 0;
+      border-bottom: 6px solid #006400;
+      font-size: 2em;
+      font-weight: bold;
+      color: #006400;
+    }
+
+    footer {
+      bottom: 0;
+      border-top: 6px solid #006400;
+      font-size: 1.5em;
+      background: linear-gradient(to right, #006400, #FFD400, #006400);
+      color: #fff;
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      text-align: center;
+      position: relative;
+      background-size: cover;
+      background-blend-mode: multiply;
+    }
+
+    .message-content {
+      max-width: 90%;
+      font-size: 2em;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+      color: #333;
+      position: relative;
+      z-index: 2;
+    }
+
+    .message-content.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Colores crayola */
+    section:nth-child(1) { background: #FFB3BA url('https://www.transparenttextures.com/patterns/paper-fibers.png'); }
+    section:nth-child(2) { background: #FFDFBA url('https://www.transparenttextures.com/patterns/paper-fibers.png'); }
+    section:nth-child(3) { background: #FFFFBA url('https://www.transparenttextures.com/patterns/paper-fibers.png'); }
+    section:nth-child(4) { background: #BAFFC9 url('https://www.transparenttextures.com/patterns/paper-fibers.png'); }
+    section:nth-child(5) { background: #BAE1FF url('https://www.transparenttextures.com/patterns/paper-fibers.png'); }
+    section:nth-child(6) { background: #E3BAFF url('https://www.transparenttextures.com/patterns/paper-fibers.png'); }
+    section:nth-child(7) { background: #FFC0CB url('https://www.transparenttextures.com/patterns/paper-fibers.png'); }
+    section:nth-child(8) { background: #C7CEEA url('https://www.transparenttextures.com/patterns/paper-fibers.png'); }
+
+    /* Estrellitas animadas */
+    .star {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/4/44/Plain_Yellow_Star.png') no-repeat center;
+      background-size: contain;
+      animation: pop 1s ease-out forwards;
+      pointer-events: none;
+      z-index: 1001;
+    }
+
+    @keyframes pop {
+      0% {
+        opacity: 0;
+        transform: scale(0.3) rotate(0deg);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1.5) rotate(360deg);
+      }
+    }
+
+    /* Confetti canvas */
+    #confetti-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+<header>Crayola</header>
+
+<section><div class="message-content">Querida maestra:</div></section>
+<section><div class="message-content">Gracias por cada palabra que abraza,<br>por cada gesto que calma,</div></section>
+<section><div class="message-content">por enseñar no solo con la voz,<br>sino con el alma.</div></section>
+<section><div class="message-content">Tu labor es semilla en tierra fértil,<br>es luz que guía en los días nublados,</div></section>
+<section><div class="message-content">aunque a veces no lo notes,<br>tu huella queda…</div></section>
+<section><div class="message-content">en cada corazón tocado.</div></section>
+<section><div class="message-content">Hoy deseo que te abracen bonito,<br>que te llenen de sonrisas y cariño,</div></section>
+<section><div class="message-content">porque lo que das,<br>vuelve multiplicado.<br><br><strong>Con cariño, Mit :)</strong></div></section>
+
+<footer>Maestra #1</footer>
+
+<!-- Audio campanita -->
+<audio id="bell-sound" src="https://assets.mixkit.co/active_storage/sfx/777/777-preview.mp3"></audio>
+
+<canvas id="confetti-canvas"></canvas>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
+        entry.target.classList.add('visible');
+
+        // Sonido campanita
+        const bell = document.getElementById("bell-sound");
+        bell.currentTime = 0;
+        bell.play();
+
+        // Estrellita
+        const star = document.createElement("div");
+        star.classList.add("star");
+        const rect = entry.target.getBoundingClientRect();
+        star.style.top = `${rect.top + window.scrollY + 20}px`;
+        star.style.left = `${rect.left + window.innerWidth / 2 - 15}px`;
+        document.body.appendChild(star);
+        setTimeout(() => star.remove(), 1000);
+
+        // Confeti
+        startConfetti();
+      }
+    });
+  }, { threshold: 0.6 });
+
+  document.querySelectorAll('.message-content').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Mostrar el primer mensaje desde el inicio con animación y confeti
+  window.addEventListener('DOMContentLoaded', () => {
+    const firstMessage = document.querySelector('.message-content');
+    if (firstMessage && !firstMessage.classList.contains('visible')) {
+      firstMessage.classList.add('visible');
+
+      // Sonido campanita
+      const bell = document.getElementById("bell-sound");
+      bell.currentTime = 0;
+      bell.play();
+
+      // Estrellita
+      const rect = firstMessage.getBoundingClientRect();
+      const star = document.createElement("div");
+      star.classList.add("star");
+      star.style.top = `${rect.top + window.scrollY + 20}px`;
+      star.style.left = `${rect.left + window.innerWidth / 2 - 15}px`;
+      document.body.appendChild(star);
+      setTimeout(() => star.remove(), 1000);
+
+      // Confeti
+      startConfetti();
+    }
+  });
+
+  // Confeti canvas setup
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  let confettiPieces = [];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  function createConfetti() {
+    const colors = ['#FF69B4', '#FFD700', '#1E90FF', '#32CD32', '#FF4500'];
+    for (let i = 0; i < 150; i++) {
+      confettiPieces.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height - canvas.height,
+        size: Math.random() * 8 + 4,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        speed: Math.random() * 4 + 2,
+        rotation: Math.random() * 360,
+        rotationSpeed: Math.random() * 10 - 5
+      });
+    }
+  }
+
+  function drawConfetti() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    confettiPieces.forEach((p, i) => {
+      ctx.fillStyle = p.color;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate((p.rotation * Math.PI) / 180);
+      ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+      ctx.restore();
+      p.y += p.speed;
+      p.rotation += p.rotationSpeed;
+
+      // remove if out of view
+      if (p.y > canvas.height) confettiPieces.splice(i, 1);
+    });
+  }
+
+  function animateConfetti() {
+    drawConfetti();
+    if (confettiPieces.length > 0) {
+      requestAnimationFrame(animateConfetti);
+    }
+  }
+
+  function startConfetti() {
+    confettiPieces = []; // Limpiar confeti previo
+    createConfetti();
+    animateConfetti();
+  }
+</script>
+
+</body>
+</html>
