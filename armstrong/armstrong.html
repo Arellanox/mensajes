@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Astronauta y la Luna</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      overflow: hidden;
+      height: 100vh;
+      font-family: 'Press Start 2P', cursive;
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 2s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+
+    .astronauta {
+      position: absolute;
+      top: -300px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 230px;
+      animation: descend 5s ease-in-out forwards;
+      z-index: 2;
+    }
+
+    @keyframes descend {
+      0% { top: -300px; opacity: 0; }
+      30% { opacity: 1; }
+      100% { top: calc(60vh - 10px); }
+    }
+
+    .luna {
+      position: absolute;
+      bottom: -800px;
+      left: 0;
+      width: 100%;
+      animation: subirLuna 1.5s ease-out forwards;
+      animation-delay: 3.5s;
+      z-index: 1;
+    }
+
+    @keyframes subirLuna {
+      from { bottom: -800px; }
+      to { bottom: -400px; }
+    }
+
+    .mensaje {
+      position: absolute;
+      top: 150px;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-size: 60px;
+      opacity: 0;
+      z-index: 3;
+      padding: 0 20px;
+      animation: aparecer 2s ease-in forwards;
+      animation-delay: 5.5s;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    }
+
+    @keyframes aparecer {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars" id="stars"></div>
+
+  <img src="astronauta.png" alt="Astronauta" class="astronauta">
+  <img src="luna.png" alt="Luna" class="luna">
+
+  <div class="mensaje" id="mensaje">
+    Me sentiré como el primer hombre en la luna, que llegó hasta las alturas para poderte querer.
+  </div>
+
+  <script>
+    // Estrellas aleatorias
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.top = Math.random() * window.innerHeight + 'px';
+      star.style.left = Math.random() * window.innerWidth + 'px';
+      star.style.animationDelay = Math.random() * 2 + 's';
+      starsContainer.appendChild(star);
+    }
+  </script>
+
+</body>
+</html>
