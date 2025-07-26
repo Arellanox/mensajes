@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MR Between Care</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+   <!-- Swiper.js CSS -->
+   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+  
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 15px 50px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      color: #0077b6;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #0077b6;
+    }
+
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      color: white;
+      max-width: 700px;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .hero a {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #0077b6;
+      color: white;
+      font-weight: bold;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero a:hover {
+      background-color: #023e8a;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>MR Between Care</h1>
+    <nav>
+      <ul>
+        <li><a href="#quienes-somos">¿Quiénes somos?</a></li>
+        <li><a href="#vision">Visión</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content animate__animated animate__fadeInDown">
+      <h2>Distribución, tecnología y salud</h2>
+      <p>Conectamos experiencia y tecnología para transformar el sistema de salud en México.</p>
+      <a href="#quienes-somos">Conócenos</a>
+    </div>
+  </section>
+
+  <!-- ¿Quiénes somos? -->
+<section id="quienes-somos" style="padding: 80px 20px; background-color: #ffffff;">
+  <div style="max-width: 1200px; margin: auto; text-align: center;">
+    <h2 data-aos="fade-up" style="font-size: 2.5rem; margin-bottom: 40px; color: #0077b6;">
+      ¿Quiénes somos?
+    </h2>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+      <!-- Card 1 -->
+      <div data-aos="fade-up" data-aos-delay="100"
+           style="background: #f1f9ff; border-radius: 15px; padding: 30px; width: 300px; box-shadow: 0 8px 20px rgba(0,0,0,0.08);">
+        <i class="fas fa-user-md fa-3x" style="color: #0077b6; margin-bottom: 20px;"></i>
+        <h3 style="color: #023e8a; margin-bottom: 15px;">Experiencia en salud</h3>
+        <p style="font-size: 0.95rem;">Más de 20 años de experiencia respaldan a nuestro equipo fundador, con enfoque en soluciones clínicas reales.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div data-aos="fade-up" data-aos-delay="200"
+           style="background: #f1f9ff; border-radius: 15px; padding: 30px; width: 300px; box-shadow: 0 8px 20px rgba(0,0,0,0.08);">
+        <i class="fas fa-truck-loading fa-3x" style="color: #0077b6; margin-bottom: 20px;"></i>
+        <h3 style="color: #023e8a; margin-bottom: 15px;">Distribución especializada</h3>
+        <p style="font-size: 0.95rem;">Nos especializamos en la venta y renta de equipos médicos, insumos y consumibles para instituciones de salud.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div data-aos="fade-up" data-aos-delay="300"
+           style="background: #f1f9ff; border-radius: 15px; padding: 30px; width: 300px; box-shadow: 0 8px 20px rgba(0,0,0,0.08);">
+        <i class="fas fa-handshake fa-3x" style="color: #0077b6; margin-bottom: 20px;"></i>
+        <h3 style="color: #023e8a; margin-bottom: 15px;">Vínculo con especialistas</h3>
+        <p style="font-size: 0.95rem;">Conectamos con médicos, biomédicos y técnicos especializados para impulsar el acceso a tecnologías de salud.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Visión y Misión -->
+<section id="vision" style="padding: 80px 20px; background: linear-gradient(135deg, #d0f1ff, #e6f7ff);">
+  <div style="max-width: 1100px; margin: auto; text-align: center;">
+    <h2 data-aos="fade-up" style="font-size: 2.5rem; margin-bottom: 40px; color: #0077b6;">
+      Visión y Misión
+    </h2>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center;">
+      <!-- Visión -->
+      <div data-aos="fade-right" style="background: white; border-radius: 15px; padding: 30px; width: 450px; box-shadow: 0 6px 16px rgba(0,0,0,0.08); text-align: left;">
+        <i class="fas fa-eye fa-2x" style="color: #0096c7; margin-bottom: 20px;"></i>
+        <h3 style="color: #023e8a; margin-bottom: 15px;">Nuestra Visión</h3>
+        <p style="font-size: 0.95rem;">
+          Posicionarnos como una empresa confiable dentro del ámbito hospitalario, capaz de fortalecer y solucionar necesidades mediante productos y servicios médicos de alta calidad. Nuestra experiencia crea vínculos duraderos basados en la confianza.
+        </p>
+      </div>
+
+      <!-- Misión -->
+      <div data-aos="fade-left" style="background: white; border-radius: 15px; padding: 30px; width: 450px; box-shadow: 0 6px 16px rgba(0,0,0,0.08); text-align: left;">
+        <i class="fas fa-bullseye fa-2x" style="color: #0096c7; margin-bottom: 20px;"></i>
+        <h3 style="color: #023e8a; margin-bottom: 15px;">Nuestra Misión</h3>
+        <p style="font-size: 0.95rem;">
+          Ser reconocidos como un aliado de confianza que brinda asesoría, servicio y productos con el compromiso de cumplir al 100% las expectativas de cada cliente e institución con la que tengamos relación comercial o contractual.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ¿Qué ofrecemos? -->
+<section id="ofrecemos" style="padding: 80px 20px; background-color: #f9f9fb;">
+  <div style="max-width: 1100px; margin: auto; text-align: center;">
+    <h2 data-aos="fade-up" style="font-size: 2.5rem; margin-bottom: 40px; color: #0077b6;">
+      ¿Qué ofrecemos?
+    </h2>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+      <!-- Servicio 1 -->
+      <div data-aos="zoom-in" data-aos-delay="100"
+           style="background: white; border-radius: 15px; padding: 30px; width: 300px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); transition: transform 0.3s;">
+        <i class="fas fa-stethoscope fa-3x" style="color: #0077b6; margin-bottom: 20px;"></i>
+        <h3 style="color: #023e8a; margin-bottom: 15px;">Venta y Renta</h3>
+        <p style="font-size: 0.95rem;">Equipos médicos de diagnóstico, imagen, laboratorio y consultorio, adaptados a las necesidades de cada institución.</p>
+      </div>
+
+      <!-- Servicio 2 -->
+      <div data-aos="zoom-in" data-aos-delay="200"
+           style="background: white; border-radius: 15px; padding: 30px; width: 300px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); transition: transform 0.3s;">
+        <i class="fas fa-vials fa-3x" style="color: #0077b6; margin-bottom: 20px;"></i>
+        <h3 style="color: #023e8a; margin-bottom: 15px;">Insumos y Accesorios</h3>
+        <p style="font-size: 0.95rem;">Consumibles, accesorios de monitoreo, medios de contraste y equipos para neonatología listos para entrega.</p>
+      </div>
+
+      <!-- Servicio 3 -->
+      <div data-aos="zoom-in" data-aos-delay="300"
+           style="background: white; border-radius: 15px; padding: 30px; width: 300px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); transition: transform 0.3s;">
+        <i class="fas fa-tools fa-3x" style="color: #0077b6; margin-bottom: 20px;"></i>
+        <h3 style="color: #023e8a; margin-bottom: 15px;">Servicio Técnico</h3>
+        <p style="font-size: 0.95rem;">Mantenimiento preventivo y correctivo de los equipos de nuestro portafolio, con soporte técnico especializado.</p>
+      </div>
+    </div>
+
+    <!-- Lista destacada -->
+    <div data-aos="fade-up" data-aos-delay="400" style="margin-top: 60px; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
+      <h4 style="color: #0077b6; font-size: 1.4rem; margin-bottom: 20px; text-align: center;">Nuestro portafolio incluye:</h4>
+      <ul style="list-style: none; padding-left: 0; font-size: 1rem; color: #444;">
+        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #38b000; margin-right: 10px;"></i> Monitores de signos vitales y ECG</li>
+        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #38b000; margin-right: 10px;"></i> Equipos de rayos X, ultrasonido y tomografía</li>
+        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #38b000; margin-right: 10px;"></i> Incubadoras, lámparas de fototerapia y cunas</li>
+        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #38b000; margin-right: 10px;"></i> Inyectores y medios de contraste</li>
+        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #38b000; margin-right: 10px;"></i> Accesorios como brazaletes, sensores y cables</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Productos -->
+<section id="productos" style="padding: 80px 20px; background-color: #ffffff;">
+  <div style="max-width: 1100px; margin: auto; text-align: center;">
+    <h2 data-aos="fade-up" style="font-size: 2.5rem; margin-bottom: 40px; color: #0077b6;">
+      Nuestros Productos
+    </h2>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+
+      <!-- Card 1: Diagnóstico -->
+      <div data-aos="fade-up" data-aos-delay="100"
+           style="background: #f1f9ff; border-radius: 15px; padding: 25px; width: 300px; box-shadow: 0 6px 14px rgba(0,0,0,0.05); transition: transform 0.3s;">
+        <i class="fas fa-heartbeat fa-3x" style="color: #0077b6; margin-bottom: 15px;"></i>
+        <h3 style="color: #023e8a; margin-bottom: 10px;">Equipos de Diagnóstico</h3>
+        <p style="font-size: 0.95rem;">Monitores de signos vitales, ECG, estuches de diagnóstico, oxímetros, y más.</p>
+      </div>
+
+      <!-- Card 2: Imagenología -->
+      <div data-aos="fade-up" data-aos-delay="200"
+           style="background: #f1f9ff; border-radius: 15px; padding: 25px; width: 300px; box-shadow: 0 6px 14px rgba(0,0,0,0.05);">
+        <i class="fas fa-x-ray fa-3x" style="color: #0077b6; margin-bottom: 15px;"></i>
+        <h3 style="color: #023e8a; margin-bottom: 10px;">Imagenología</h3>
+        <p style="font-size: 0.95rem;">Rayos X, ultrasonidos, tomógrafos, inyectores de contraste y medios asociados.</p>
+      </div>
+
+      <!-- Card 3: Neonatología -->
+      <div data-aos="fade-up" data-aos-delay="300"
+           style="background: #f1f9ff; border-radius: 15px; padding: 25px; width: 300px; box-shadow: 0 6px 14px rgba(0,0,0,0.05);">
+        <i class="fas fa-baby fa-3x" style="color: #0077b6; margin-bottom: 15px;"></i>
+        <h3 style="color: #023e8a; margin-bottom: 10px;">Neonatología</h3>
+        <p style="font-size: 0.95rem;">Incubadoras, cunas térmicas, lámparas de fototerapia y accesorios especializados.</p>
+      </div>
+
+      <!-- Card 4: Accesorios -->
+      <div data-aos="fade-up" data-aos-delay="400"
+           style="background: #f1f9ff; border-radius: 15px; padding: 25px; width: 300px; box-shadow: 0 6px 14px rgba(0,0,0,0.05);">
+        <i class="fas fa-plug fa-3x" style="color: #0077b6; margin-bottom: 15px;"></i>
+        <h3 style="color: #023e8a; margin-bottom: 10px;">Accesorios</h3>
+        <p style="font-size: 0.95rem;">Brazaletes, sensores SpO2, cables ECG y otros consumibles compatibles con múltiples marcas.</p>
+      </div>
+
+      <!-- Card 5: Laboratorio -->
+      <div data-aos="fade-up" data-aos-delay="500"
+           style="background: #f1f9ff; border-radius: 15px; padding: 25px; width: 300px; box-shadow: 0 6px 14px rgba(0,0,0,0.05);">
+        <i class="fas fa-flask fa-3x" style="color: #0077b6; margin-bottom: 15px;"></i>
+        <h3 style="color: #023e8a; margin-bottom: 10px;">Laboratorio Clínico</h3>
+        <p style="font-size: 0.95rem;">Equipos para análisis clínicos y diagnóstico complementario de precisión.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Nuestras Marcas -->
+<section id="marcas" style="padding: 80px 20px; background: linear-gradient(to right, #f1f9ff, #d0f1ff);">
+  <div style="max-width: 1100px; margin: auto; text-align: center;">
+    <h2 data-aos="fade-up" style="font-size: 2.5rem; margin-bottom: 40px; color: #0077b6;">
+      Nuestras Marcas
+    </h2>
+
+    <!-- Swiper Container -->
+    <div class="swiper-container" style="padding-bottom: 40px;">
+      <div class="swiper-wrapper">
+
+        <!-- Marca 1 -->
+        <div class="swiper-slide" style="display: flex; align-items: center; justify-content: center;">
+          <img src="https://dummyimage.com/150x60/0077b6/ffffff.png&text=Marca+1" alt="Marca 1" style="max-height: 60px;" />
+        </div>
+
+        <!-- Marca 2 -->
+        <div class="swiper-slide" style="display: flex; align-items: center; justify-content: center;">
+          <img src="https://dummyimage.com/150x60/0096c7/ffffff.png&text=Marca+2" alt="Marca 2" style="max-height: 60px;" />
+        </div>
+
+        <!-- Marca 3 -->
+        <div class="swiper-slide" style="display: flex; align-items: center; justify-content: center;">
+          <img src="https://dummyimage.com/150x60/00b4d8/ffffff.png&text=Marca+3" alt="Marca 3" style="max-height: 60px;" />
+        </div>
+
+        <!-- Marca 4 -->
+        <div class="swiper-slide" style="display: flex; align-items: center; justify-content: center;">
+          <img src="https://dummyimage.com/150x60/48cae4/ffffff.png&text=Marca+4" alt="Marca 4" style="max-height: 60px;" />
+        </div>
+
+        <!-- Marca 5 -->
+        <div class="swiper-slide" style="display: flex; align-items: center; justify-content: center;">
+          <img src="https://dummyimage.com/150x60/90e0ef/ffffff.png&text=Marca+5" alt="Marca 5" style="max-height: 60px;" />
+        </div>
+
+         <!-- Marca 6 -->
+        <div class="swiper-slide" style="display: flex; align-items: center; justify-content: center;">
+          <img src="https://dummyimage.com/150x60/0077b6/ffffff.png&text=Marca+6" alt="Marca 5" style="max-height: 60px;" />
+        </div>
+         <!-- Marca 7 -->
+        <div class="swiper-slide" style="display: flex; align-items: center; justify-content: center;">
+          <img src="https://dummyimage.com/150x60/0096c7/ffffff.png&text=Marca+7" alt="Marca 5" style="max-height: 60px;" />
+        </div>
+         <!-- Marca 8 -->
+        <div class="swiper-slide" style="display: flex; align-items: center; justify-content: center;">
+          <img src="https://dummyimage.com/150x60/00b4d8/ffffff.png&text=Marca+8" alt="Marca 5" style="max-height: 60px;" />
+        </div>
+         <!-- Marca 9 -->
+        <div class="swiper-slide" style="display: flex; align-items: center; justify-content: center;">
+          <img src="https://dummyimage.com/150x60/90e0ef/ffffff.png&text=Marca+9" alt="Marca 5" style="max-height: 60px;" />
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section id="contacto" style="padding: 80px 20px; background-color: #f9f9fb;">
+  <div style="max-width: 1100px; margin: auto;">
+    <h2 data-aos="fade-up" style="text-align: center; font-size: 2.5rem; margin-bottom: 40px; color: #0077b6;">
+      Contáctanos
+    </h2>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between;">
+
+      <!-- Formulario -->
+      <div data-aos="fade-right" style="flex: 1 1 480px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.06);">
+        <form>
+          <div style="margin-bottom: 20px;">
+            <label for="nombre" style="display: block; font-weight: 600;">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required
+              style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px;">
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <label for="email" style="display: block; font-weight: 600;">Correo electrónico</label>
+            <input type="email" id="email" name="email" required
+              style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px;">
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <label for="mensaje" style="display: block; font-weight: 600;">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required
+              style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px;"></textarea>
+          </div>
+
+          <button type="submit"
+            style="background-color: #0077b6; color: white; padding: 12px 25px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer;">
+            Enviar
+          </button>
+        </form>
+      </div>
+
+      <!-- Información y mapa -->
+      <div data-aos="fade-left" style="flex: 1 1 480px;">
+        <div style="margin-bottom: 30px;">
+          <h3 style="color: #023e8a; margin-bottom: 15px;">Contacto Directo</h3>
+          <p><i class="fas fa-user-tie" style="color: #0077b6;"></i> <strong>Adriana Jacobo Moreno</strong> – Directora General</p>
+          <p><i class="fas fa-envelope" style="color: #0077b6;"></i> mrbetweencare@gmail.com</p>
+          <p><i class="fas fa-phone" style="color: #0077b6;"></i> 55 24 34 97 17</p>
+          <br>
+          <p><i class="fas fa-user" style="color: #0077b6;"></i> <strong>Miguel Ángel Romero Carrera</strong> – Director Comercial</p>
+          <p><i class="fas fa-envelope" style="color: #0077b6;"></i> mrbetweencare@gmail.com</p>
+          <p><i class="fas fa-phone" style="color: #0077b6;"></i> 55 17 48 60 77</p>
+        </div>
+
+        <!-- Mapa -->
+        <div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.3481688947784!2d-99.18275208593536!3d19.39763298689851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f91a8410c83f%3A0x1ae8d0378e09d7a!2sNte.%2081%20A%20491%2C%20Sindicato%20Mexicano%20de%20Electricistas%2C%20Azcapotzalco%2C%2002060%20Ciudad%20de%20México%2C%20CDMX!5e0!3m2!1ses!2smx!4v1693670211632!5m2!1ses!2smx"
+            width="100%" height="250" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Script para AOS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <!-- Swiper.js JS -->
+ <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script>
+  const swiper = new Swiper('.swiper-container', {
+    loop: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    slidesPerView: 2,
+    breakpoints: {
+      640: { slidesPerView: 3 },
+      768: { slidesPerView: 4 },
+      1024: { slidesPerView: 5 }
+    },
+    spaceBetween: 30,
+  });
+</script>
+
+
+
+</body>
+</html>
