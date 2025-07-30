@@ -15,12 +15,10 @@
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
   <!-- Font Awesome -->
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
-   <!-- Swiper.js CSS -->
-   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
-  
+  <!-- Swiper.js CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
   <style>
     * {
@@ -40,18 +38,24 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 15px 50px;
+      background: white;
+      padding: 15px 30px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       z-index: 1000;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
     }
 
     header h1 {
       font-size: 1.5rem;
       color: #0077b6;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      color: #0077b6;
+      font-weight: bold;
     }
 
     nav ul {
@@ -60,82 +64,136 @@
       gap: 30px;
     }
 
-    nav a {
+    nav ul li a {
       text-decoration: none;
       color: #333;
       font-weight: 600;
       transition: color 0.3s;
     }
 
-    nav a:hover {
+    nav ul li a:hover {
+      color: #0077b6;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
       color: #0077b6;
     }
 
     .hero {
-      height: 100vh;
-      background: url('https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
-      position: relative;
-    }
+  position: relative;
+  height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=1950&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
 
-    .hero-overlay {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-    }
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 55, 95, 0.5);
+  z-index: 1;
+}
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      color: white;
-      max-width: 700px;
-    }
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 20px;
+}
 
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
+.hero-content h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
 
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-    }
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
 
-    .hero a {
-      display: inline-block;
-      padding: 12px 25px;
-      background-color: #0077b6;
-      color: white;
-      font-weight: bold;
-      border-radius: 25px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
+.hero-content a {
+  background-color: #0077b6;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
 
-    .hero a:hover {
-      background-color: #023e8a;
+.hero-content a:hover {
+  background-color: #0096c7;
+}
+
+
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+        display: none;
+        flex-direction: column;
+        z-index: 999;
+      }
+
+      nav ul {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+      }
+
+      nav.show {
+        display: flex;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <h1>MR Between Care</h1>
-    <nav>
-      <ul>
-        <li><a href="#quienes-somos">¿Quiénes somos?</a></li>
-        <li><a href="#vision">Visión</a></li>
-        <li><a href="#productos">Productos</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <div class="logo">MR Between Care</div>
+
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <nav id="main-menu">
+    <ul>
+      <li><a href="#quienes-somos" onclick="closeMenu()">¿Quiénes somos?</a></li>
+      <li><a href="#vision" onclick="closeMenu()">Visión</a></li>
+      <li><a href="#productos" onclick="closeMenu()">Productos</a></li>
+      <li><a href="#marcas" onclick="closeMenu()">Marcas</a></li>
+      <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
 
   <!-- Hero Section -->
   <section class="hero">
@@ -376,7 +434,7 @@
       Contáctanos
     </h2>
 
-    <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between;">
+  <div class="flex-responsive" style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between;">
 
       <!-- Formulario -->
       <div data-aos="fade-right" style="flex: 1 1 480px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.06);">
@@ -433,13 +491,10 @@
   </div>
 </section>
 
-  <!-- Script para AOS -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
-  <!-- Swiper.js JS -->
- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- Librerías -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init();</script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 <script>
   const swiper = new Swiper('.swiper-container', {
@@ -458,7 +513,17 @@
   });
 </script>
 
-
+<script>
+  const nav = document.getElementById('main-menu');
+  function toggleMenu() {
+    nav.classList.toggle('show');
+  }
+  function closeMenu() {
+    if (window.innerWidth <= 768) {
+      nav.classList.remove('show');
+    }
+  }
+</script>
 
 </body>
 </html>
