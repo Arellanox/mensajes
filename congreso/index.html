@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>I Congreso de Cirugía — Abordaje Laparoscópico</title>
+  <meta name="description" content="I Congreso de Cirugía: Abordaje Laparoscópico — 6 y 7 de noviembre. Aparta tu lugar." />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cyanTech: '#06b6d4',
+            deepBg: '#060606'
+          },
+          boxShadow: {
+            'glow-cyan': '0 0 20px rgba(6,182,212,0.25)'
+          }
+        },
+        fontFamily: {
+          sans: ['Poppins', 'Inter', 'ui-sans-serif']
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+  <meta name="theme-color" content="#06b6d4" />
+</head>
+<body class="bg-deepBg text-slate-100 font-sans antialiased relative overflow-x-hidden">
+
+  <!-- Fondo partículas -->
+  <div id="tsparticles" class="fixed inset-0 -z-10"></div>
+
+  <!-- HEADER -->
+  <header class="fixed w-full top-0 left-0 z-40 bg-black/60 backdrop-blur-sm border-b border-white/10">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyanTech to-white/20 flex items-center justify-center shadow-glow-cyan">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2v20M4 12h16" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="font-semibold text-white text-sm sm:text-base">I Congreso de Cirugía</span>
+      </div>
+
+      <div class="hidden md:flex gap-6 text-sm">
+        <a href="#ponentes" class="hover:text-cyanTech transition">Ponentes</a>
+        <a href="#programa" class="hover:text-cyanTech transition">Programa</a>
+        <a href="#contacto" class="hover:text-cyanTech transition">Contacto</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfRlfVqgZERciDDhzimE6FThT5YOf-vOB7-McjT5vFRxCKO0A/viewform"
+           target="_blank"
+           class="px-4 py-2 bg-gradient-to-r from-cyanTech to-[#00ffff] text-black font-semibold rounded-md shadow-glow-cyan hover:scale-105 transition">
+          Aparta tu lugar
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24">
+    <h1 class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg mb-4">I Congreso de Cirugía</h1>
+    <p class="text-cyanTech text-xl md:text-2xl font-semibold mb-6">Abordaje Laparoscópico</p>
+    <p class="max-w-2xl text-slate-300 mb-8 italic">“Si sientes que la tecnología te obstruye el paso, lo mejor es caminar junto a ella”</p>
+    <p class="text-sm text-slate-400 mb-10">06 - 07 de noviembre • Hotel Hyatt Regency • 8:00 - 13:30</p>
+    <a href="https://www.canva.com/design/DAGfB1G_Zis/XkThdMJxvdPG-krh019zBg/edit?utm_content=DAGfB1G_Zis&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+       target="_blank"
+       class="px-8 py-3 rounded-full bg-gradient-to-r from-[#00e6ff] to-cyanTech text-black font-semibold shadow-glow-cyan hover:scale-105 transition">
+      Aparta tu lugar
+    </a>
+  </section>
+
+  <!-- PONENTES -->
+  <section id="ponentes" class="py-20 px-6 bg-black/40 backdrop-blur-sm border-y border-white/10">
+    <div class="max-w-6xl mx-auto text-center" data-aos="fade-up">
+      <h2 class="text-3xl font-bold mb-4">Ponentes destacados</h2>
+      <p class="text-slate-300 mb-10">Especialistas nacionales en cirugía laparoscópica.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white/5 rounded-xl p-6 border border-white/10 hover:scale-105 transition" data-aos="zoom-in">
+          <h3 class="font-semibold text-white text-lg">Dr. Ricardo Blas Azotla</h3>
+          <p class="text-slate-300 text-sm">Cirujano Bariatra — Hospital Ángeles Mocel, CDMX</p>
+          <p class="text-xs text-slate-400 mt-2">Tema: Cirugía Robótica aplicada a múltiples disciplinas quirúrgicas</p>
+        </div>
+
+        <div class="bg-white/5 rounded-xl p-6 border border-white/10 hover:scale-105 transition" data-aos="zoom-in" data-aos-delay="100">
+          <h3 class="font-semibold text-white text-lg">Dr. Romeo Castillo Castellanos</h3>
+          <p class="text-slate-300 text-sm">Cirujano Bariatra — Hospital Regional de Alta Especialidad</p>
+          <p class="text-xs text-slate-400 mt-2">Tema: Tratamiento quirúrgico de la obesidad</p>
+        </div>
+
+        <div class="bg-white/5 rounded-xl p-6 border border-white/10 hover:scale-105 transition" data-aos="zoom-in" data-aos-delay="200">
+          <h3 class="font-semibold text-white text-lg">Dra. Sabdi Belén Ramos Moguel</h3>
+          <p class="text-slate-300 text-sm">Cirujana General — ISSSTE</p>
+          <p class="text-xs text-slate-400 mt-2">Tema: Drenaje laparoscópico del absceso hepático</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- PROGRAMA (Tarjetas flotantes 3D) -->
+<section id="programa" class="py-20 px-6 bg-black/40 backdrop-blur-sm border-b border-white/10">
+  <div class="max-w-6xl mx-auto text-center" data-aos="fade-up">
+    <h2 class="text-3xl font-bold mb-4">Programa</h2>
+    <p class="text-slate-300 mb-12">Dos días de aprendizaje, tecnología y práctica quirúrgica avanzada.</p>
+
+    <!-- Día 1 -->
+    <div class="mb-12" data-aos="fade-right">
+      <h3 class="text-2xl font-semibold text-cyanTech mb-6">06 de noviembre — Día 1</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
+          <h4 class="font-semibold text-white text-lg">08:00 - 08:30</h4>
+          <p class="text-slate-300">Registro</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
+          <h4 class="font-semibold text-white text-lg">08:30 - 09:00</h4>
+          <p class="text-slate-300">Ceremonia de inauguración</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
+          <h4 class="font-semibold text-white text-lg">09:00 - 09:30</h4>
+          <p class="text-slate-300">Colecistectomía y exploración de vías biliares</p>
+          <p class="text-slate-400 text-sm">(Dr. Emmanuel Duarte)</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
+          <h4 class="font-semibold text-white text-lg">10:30 - 11:00</h4>
+          <p class="text-slate-300">Coffee Break ☕</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
+          <h4 class="font-semibold text-white text-lg">11:00 - 11:30</h4>
+          <p class="text-slate-300">Apendicectomía laparoscópica</p>
+          <p class="text-slate-400 text-sm">(Dr. Juan José Álvarez)</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
+          <h4 class="font-semibold text-white text-lg">12:00 - 12:30</h4>
+          <p class="text-slate-300">Cirugía Robótica aplicada</p>
+          <p class="text-slate-400 text-sm">(Dr. Ricardo Blas)</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition md:col-span-2 lg:col-span-3">
+          <h4 class="font-semibold text-white text-lg">13:00 - 13:30</h4>
+          <p class="text-slate-300">Úlcera gástrica perforada</p>
+          <p class="text-slate-400 text-sm">(Dr. Ricardo Aranda)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Día 2 -->
+    <div data-aos="fade-left">
+      <h3 class="text-2xl font-semibold text-cyanTech mb-6">07 de noviembre — Día 2</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
+          <h4 class="font-semibold text-white text-lg">09:00 - 09:30</h4>
+          <p class="text-slate-300">Enfermedad diverticular del colon</p>
+          <p class="text-slate-400 text-sm">(Dra. Saraí Vidal)</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
+          <h4 class="font-semibold text-white text-lg">10:30 - 11:00</h4>
+          <p class="text-slate-300">Reparación de vía biliar</p>
+          <p class="text-slate-400 text-sm">(Dra. Sahadia Castellanos)</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
+          <h4 class="font-semibold text-white text-lg">11:30 - 12:00</h4>
+          <p class="text-slate-300">Endoscopia auxiliar</p>
+          <p class="text-slate-400 text-sm">(Dr. Guillermo Wilson)</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
+          <h4 class="font-semibold text-white text-lg">12:00 - 12:30</h4>
+          <p class="text-slate-300">ERGE laparoscópico</p>
+          <p class="text-slate-400 text-sm">(Dr. Javier García)</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition md:col-span-2 lg:col-span-3">
+          <h4 class="font-semibold text-white text-lg">13:00 - 13:30</h4>
+          <p class="text-slate-300">Cirugía pediátrica</p>
+          <p class="text-slate-400 text-sm">(Dr. César Calderón)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="py-20 px-6 bg-black/40 backdrop-blur-sm">
+    <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+      <h2 class="text-3xl font-bold mb-6">Contacto</h2>
+      <p class="text-slate-300 mb-8">¿Dudas o comentarios? Escríbenos o llámanos.</p>
+
+      <p class="text-slate-200 mb-3">
+        Teléfono: <a href="tel:+5219615720434" class="text-cyanTech font-semibold">961 572 0434</a>
+      </p>
+      <p class="text-slate-200 mb-10">
+        Email: <a href="mailto:ccg.laparoscopia@gmail.com" class="text-cyanTech font-semibold">ccg.laparoscopia@gmail.com</a>
+      </p>
+
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfRlfVqgZERciDDhzimE6FThT5YOf-vOB7-McjT5vFRxCKO0A/viewform"
+         target="_blank"
+         class="px-6 py-3 rounded-full bg-gradient-to-r from-cyanTech to-[#00ffff] text-black font-semibold shadow-glow-cyan hover:scale-105 transition">
+        Aparta tu lugar
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 border-t border-white/10 text-center text-slate-400 bg-black/60 backdrop-blur-sm">
+    <small>© I Congreso de Cirugía — Abordaje Laparoscópico • Todos los derechos reservados</small>
+  </footer>
+
+  <!-- Librerías -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.2/tsparticles.bundle.min.js"></script>
+
+  <!-- JS principal -->
+  <script src="js/particles-config.js"></script>
+  <script>
+    // Inicializar AOS
+    AOS.init({ duration: 700, once: true });
+
+    // Acordeones
+    document.querySelectorAll(".accordion-toggle").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const content = btn.nextElementSibling;
+        const icon = btn.querySelector("svg");
+        const open = !content.classList.contains("hidden");
+
+        document.querySelectorAll(".accordion-content").forEach(el => el.classList.add("hidden"));
+        document.querySelectorAll(".accordion-toggle svg").forEach(svg => svg.classList.remove("rotate-180"));
+
+        if (!open) {
+          content.classList.remove("hidden");
+          icon.classList.add("rotate-180");
+        }
+      });
+    });
+  </script>
+  <script>
+  // Scroll suave al hacer clic en los enlaces del menú
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const targetId = link.getAttribute('href');
+      if (targetId.length > 1) {
+        e.preventDefault();
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const headerOffset = 80; // Altura del header fijo
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
