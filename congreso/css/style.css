@@ -1,0 +1,21 @@
+/* style.css - pequeñas personalizaciones */
+@layer utilities {
+  .animate-slow-glow {
+    animation: slowGlow 3.8s ease-in-out infinite;
+  }
+}
+
+@keyframes slowGlow {
+  0% { opacity: 0.2; transform: translateY(0); }
+  50% { opacity: 0.9; transform: translateY(2px); }
+  100% { opacity: 0.2; transform: translateY(0); }
+}
+
+/* Accordion arrow rotation */
+.accordion-open svg {
+  transform: rotate(180deg);
+}
+
+/* small cosmetic */
+html, body { height: 100%; }
+     
