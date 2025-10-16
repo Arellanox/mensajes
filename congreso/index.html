@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>I Congreso de Cirugía — Abordaje Laparoscópico</title>
-  <meta name="description" content="I Congreso de Cirugía: Abordaje Laparoscópico — 6 y 7 de noviembre. Aparta tu lugar." />
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -17,8 +16,8 @@
             deepBg: '#060606'
           },
           boxShadow: {
-            'glow-cyan': '0 0 20px rgba(6,182,212,0.25)'
-          }
+            'glow-cyan': '0 0 25px rgba(6,182,212,0.3), 0 0 45px rgba(0,255,255,0.1)'
+          },
         },
         fontFamily: {
           sans: ['Poppins', 'Inter', 'ui-sans-serif']
@@ -30,10 +29,22 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
   <meta name="theme-color" content="#06b6d4" />
-</head>
-<body class="bg-deepBg text-slate-100 font-sans antialiased relative overflow-x-hidden">
 
-  <!-- Fondo partículas -->
+  <style>
+    html { scroll-behavior: smooth; }
+    h1, h2, h3 { text-shadow: 0 0 10px rgba(0, 0, 0, 0.6); }
+    .hero-bg {
+      background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('hero.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+
+<body class="bg-deepBg text-white font-sans text-lg antialiased relative overflow-x-hidden">
+
+  <!-- Fondo de partículas (visible en todo el sitio) -->
   <div id="tsparticles" class="fixed inset-0 -z-10"></div>
 
   <!-- HEADER -->
@@ -45,218 +56,537 @@
             <path d="M12 2v20M4 12h16" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </div>
-        <span class="font-semibold text-white text-sm sm:text-base">I Congreso de Cirugía</span>
+        <span class="font-semibold text-white text-lg">I Congreso de Cirugía</span>
       </div>
 
-      <div class="hidden md:flex gap-6 text-sm">
+      <div class="hidden md:flex gap-6 text-base">
         <a href="#ponentes" class="hover:text-cyanTech transition">Ponentes</a>
         <a href="#programa" class="hover:text-cyanTech transition">Programa</a>
         <a href="#contacto" class="hover:text-cyanTech transition">Contacto</a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfRlfVqgZERciDDhzimE6FThT5YOf-vOB7-McjT5vFRxCKO0A/viewform"
            target="_blank"
-           class="px-4 py-2 bg-gradient-to-r from-cyanTech to-[#00ffff] text-black font-semibold rounded-md shadow-glow-cyan hover:scale-105 transition">
+           class="px-5 py-2 bg-gradient-to-r from-cyanTech to-[#00ffff] text-black font-semibold rounded-md shadow-glow-cyan hover:scale-105 transition">
           Aparta tu lugar
         </a>
       </div>
     </nav>
   </header>
 
-  <!-- HERO -->
-  <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24">
-    <h1 class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg mb-4">I Congreso de Cirugía</h1>
-    <p class="text-cyanTech text-xl md:text-2xl font-semibold mb-6">Abordaje Laparoscópico</p>
-    <p class="max-w-2xl text-slate-300 mb-8 italic">“Si sientes que la tecnología te obstruye el paso, lo mejor es caminar junto a ella”</p>
-    <p class="text-sm text-slate-400 mb-10">06 - 07 de noviembre • Hotel Hyatt Regency • 8:00 - 13:30</p>
-    <a href="https://www.canva.com/design/DAGfB1G_Zis/XkThdMJxvdPG-krh019zBg/edit?utm_content=DAGfB1G_Zis&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
-       target="_blank"
-       class="px-8 py-3 rounded-full bg-gradient-to-r from-[#00e6ff] to-cyanTech text-black font-semibold shadow-glow-cyan hover:scale-105 transition">
-      Aparta tu lugar
-    </a>
-  </section>
-
-  <!-- PONENTES -->
-  <section id="ponentes" class="py-20 px-6 bg-black/40 backdrop-blur-sm border-y border-white/10">
-    <div class="max-w-6xl mx-auto text-center" data-aos="fade-up">
-      <h2 class="text-3xl font-bold mb-4">Ponentes destacados</h2>
-      <p class="text-slate-300 mb-10">Especialistas nacionales en cirugía laparoscópica.</p>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white/5 rounded-xl p-6 border border-white/10 hover:scale-105 transition" data-aos="zoom-in">
-          <h3 class="font-semibold text-white text-lg">Dr. Ricardo Blas Azotla</h3>
-          <p class="text-slate-300 text-sm">Cirujano Bariatra — Hospital Ángeles Mocel, CDMX</p>
-          <p class="text-xs text-slate-400 mt-2">Tema: Cirugía Robótica aplicada a múltiples disciplinas quirúrgicas</p>
-        </div>
-
-        <div class="bg-white/5 rounded-xl p-6 border border-white/10 hover:scale-105 transition" data-aos="zoom-in" data-aos-delay="100">
-          <h3 class="font-semibold text-white text-lg">Dr. Romeo Castillo Castellanos</h3>
-          <p class="text-slate-300 text-sm">Cirujano Bariatra — Hospital Regional de Alta Especialidad</p>
-          <p class="text-xs text-slate-400 mt-2">Tema: Tratamiento quirúrgico de la obesidad</p>
-        </div>
-
-        <div class="bg-white/5 rounded-xl p-6 border border-white/10 hover:scale-105 transition" data-aos="zoom-in" data-aos-delay="200">
-          <h3 class="font-semibold text-white text-lg">Dra. Sabdi Belén Ramos Moguel</h3>
-          <p class="text-slate-300 text-sm">Cirujana General — ISSSTE</p>
-          <p class="text-xs text-slate-400 mt-2">Tema: Drenaje laparoscópico del absceso hepático</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<!-- PROGRAMA (Tarjetas flotantes 3D) -->
-<section id="programa" class="py-20 px-6 bg-black/40 backdrop-blur-sm border-b border-white/10">
-  <div class="max-w-6xl mx-auto text-center" data-aos="fade-up">
-    <h2 class="text-3xl font-bold mb-4">Programa</h2>
-    <p class="text-slate-300 mb-12">Dos días de aprendizaje, tecnología y práctica quirúrgica avanzada.</p>
-
-    <!-- Día 1 -->
-    <div class="mb-12" data-aos="fade-right">
-      <h3 class="text-2xl font-semibold text-cyanTech mb-6">06 de noviembre — Día 1</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
-          <h4 class="font-semibold text-white text-lg">08:00 - 08:30</h4>
-          <p class="text-slate-300">Registro</p>
-        </div>
-        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
-          <h4 class="font-semibold text-white text-lg">08:30 - 09:00</h4>
-          <p class="text-slate-300">Ceremonia de inauguración</p>
-        </div>
-        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
-          <h4 class="font-semibold text-white text-lg">09:00 - 09:30</h4>
-          <p class="text-slate-300">Colecistectomía y exploración de vías biliares</p>
-          <p class="text-slate-400 text-sm">(Dr. Emmanuel Duarte)</p>
-        </div>
-        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
-          <h4 class="font-semibold text-white text-lg">10:30 - 11:00</h4>
-          <p class="text-slate-300">Coffee Break ☕</p>
-        </div>
-        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
-          <h4 class="font-semibold text-white text-lg">11:00 - 11:30</h4>
-          <p class="text-slate-300">Apendicectomía laparoscópica</p>
-          <p class="text-slate-400 text-sm">(Dr. Juan José Álvarez)</p>
-        </div>
-        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
-          <h4 class="font-semibold text-white text-lg">12:00 - 12:30</h4>
-          <p class="text-slate-300">Cirugía Robótica aplicada</p>
-          <p class="text-slate-400 text-sm">(Dr. Ricardo Blas)</p>
-        </div>
-        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition md:col-span-2 lg:col-span-3">
-          <h4 class="font-semibold text-white text-lg">13:00 - 13:30</h4>
-          <p class="text-slate-300">Úlcera gástrica perforada</p>
-          <p class="text-slate-400 text-sm">(Dr. Ricardo Aranda)</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Día 2 -->
-    <div data-aos="fade-left">
-      <h3 class="text-2xl font-semibold text-cyanTech mb-6">07 de noviembre — Día 2</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
-          <h4 class="font-semibold text-white text-lg">09:00 - 09:30</h4>
-          <p class="text-slate-300">Enfermedad diverticular del colon</p>
-          <p class="text-slate-400 text-sm">(Dra. Saraí Vidal)</p>
-        </div>
-        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
-          <h4 class="font-semibold text-white text-lg">10:30 - 11:00</h4>
-          <p class="text-slate-300">Reparación de vía biliar</p>
-          <p class="text-slate-400 text-sm">(Dra. Sahadia Castellanos)</p>
-        </div>
-        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
-          <h4 class="font-semibold text-white text-lg">11:30 - 12:00</h4>
-          <p class="text-slate-300">Endoscopia auxiliar</p>
-          <p class="text-slate-400 text-sm">(Dr. Guillermo Wilson)</p>
-        </div>
-        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
-          <h4 class="font-semibold text-white text-lg">12:00 - 12:30</h4>
-          <p class="text-slate-300">ERGE laparoscópico</p>
-          <p class="text-slate-400 text-sm">(Dr. Javier García)</p>
-        </div>
-        <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition md:col-span-2 lg:col-span-3">
-          <h4 class="font-semibold text-white text-lg">13:00 - 13:30</h4>
-          <p class="text-slate-300">Cirugía pediátrica</p>
-          <p class="text-slate-400 text-sm">(Dr. César Calderón)</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-  <!-- CONTACTO -->
-  <section id="contacto" class="py-20 px-6 bg-black/40 backdrop-blur-sm">
-    <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-      <h2 class="text-3xl font-bold mb-6">Contacto</h2>
-      <p class="text-slate-300 mb-8">¿Dudas o comentarios? Escríbenos o llámanos.</p>
-
-      <p class="text-slate-200 mb-3">
-        Teléfono: <a href="tel:+5219615720434" class="text-cyanTech font-semibold">961 572 0434</a>
+  <!-- HERO con imagen de fondo -->
+  <section class="hero-bg min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24 relative">
+    <div class="max-w-3xl z-10">
+      <h1 class="text-5xl md:text-7xl font-bold text-white mb-5 drop-shadow-[0_0_12px_rgba(0,255,255,0.3)]">
+        I Congreso de Cirugía
+      </h1>
+      <p class="text-cyanTech text-2xl md:text-3xl font-semibold mb-6">Abordaje Laparoscópico</p>
+      <p class="text-slate-100 mb-10 italic text-xl">
+        “Si sientes que la tecnología te obstruye el paso, lo mejor es caminar junto a ella.”
       </p>
-      <p class="text-slate-200 mb-10">
-        Email: <a href="mailto:ccg.laparoscopia@gmail.com" class="text-cyanTech font-semibold">ccg.laparoscopia@gmail.com</a>
+      <p class="text-slate-200 mb-10 text-lg">
+        06 - 07 de noviembre • Hotel Hyatt Regency • 8:00 - 13:30
       </p>
-
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSfRlfVqgZERciDDhzimE6FThT5YOf-vOB7-McjT5vFRxCKO0A/viewform"
          target="_blank"
-         class="px-6 py-3 rounded-full bg-gradient-to-r from-cyanTech to-[#00ffff] text-black font-semibold shadow-glow-cyan hover:scale-105 transition">
+         class="px-10 py-4 rounded-full bg-gradient-to-r from-[#00e6ff] to-cyanTech text-black font-semibold text-lg shadow-glow-cyan hover:scale-105 transition">
         Aparta tu lugar
       </a>
     </div>
   </section>
 
+  <!-- PONENTES -->
+  <section id="ponentes" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto text-center" data-aos="fade-up">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-[0_0_10px_rgba(0,255,255,0.3)]">
+        Ponentes destacados
+      </h2>
+      <p class="text-slate-100 text-xl mb-14 max-w-3xl mx-auto">
+        Especialistas nacionales en cirugía laparoscópica que compartirán sus conocimientos y experiencias.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+        <div class="flex flex-col items-center text-center p-8 hover:scale-105 transition transform" data-aos="zoom-in">
+          <div class="w-44 h-44 rounded-full border-2 border-cyanTech shadow-glow-cyan overflow-hidden mb-6">
+            <img src="ponentes/ricardo_blas.jpg" class="w-full h-full object-cover">
+          </div>
+          <h3 class="font-semibold text-2xl text-white mb-1">Dr. Ricardo Blas Azotla</h3>
+          <p class="text-slate-100 text-lg mb-1">Cirujano Bariatra</p>
+          <p class="text-slate-300 text-base">Hospital Ángeles Mocel, CDMX</p>
+          <p class="text-slate-200 text-base mt-3 italic">“Cirugía Robótica aplicada a múltiples disciplinas quirúrgicas.”</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center p-8 hover:scale-105 transition transform" data-aos="zoom-in" data-aos-delay="100">
+          <div class="w-44 h-44 rounded-full border-2 border-cyanTech shadow-glow-cyan overflow-hidden mb-6">
+            <img src="ponentes/romeo_castillo.jpg" class="w-full h-full object-cover">
+          </div>
+          <h3 class="font-semibold text-2xl text-white mb-1">Dr. Romeo Castillo Castellanos</h3>
+          <p class="text-slate-100 text-lg mb-1">Cirujano Bariatra</p>
+          <p class="text-slate-300 text-base">Hospital Regional de Alta Especialidad</p>
+          <p class="text-slate-200 text-base mt-3 italic">“Tratamiento quirúrgico de la obesidad.”</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center p-8 hover:scale-105 transition transform" data-aos="zoom-in" data-aos-delay="200">
+          <div class="w-44 h-44 rounded-full border-2 border-cyanTech shadow-glow-cyan overflow-hidden mb-6">
+            <img src="ponentes/belen_ramos.jpg" class="w-full h-full object-cover">
+          </div>
+          <h3 class="font-semibold text-2xl text-white mb-1">Dra. Sabdi Belén Ramos Moguel</h3>
+          <p class="text-slate-100 text-lg mb-1">Cirujana General</p>
+          <p class="text-slate-300 text-base">ISSSTE</p>
+          <p class="text-slate-200 text-base mt-3 italic">“Drenaje laparoscópico del absceso hepático.”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMA -->
+  <section id="programa" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto text-center" data-aos="fade-up">
+      <h2 class="text-4xl font-bold mb-6 text-white drop-shadow-[0_0_10px_rgba(0,255,255,0.3)]">Programa</h2>
+      <p class="text-slate-100 text-xl mb-12">Dos días de aprendizaje, tecnología y práctica quirúrgica avanzada.</p>
+    </div>
+    <!-- Día 1 -->
+      <div class="mb-14" data-aos="fade-right">
+        <h3 class="text-2xl font-semibold text-cyanTech mb-6">06 de noviembre — Día 1</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+          <div class="bg-white/5 border border-white/10 rounded-xl p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
+            <h4 class="font-semibold text-xl text-white mb-2">08:00 - 08:30</h4>
+            <p class="text-slate-100">Registro</p>
+          </div>
+          <div class="bg-white/5 border border-white/10 rounded-xl p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition">
+            <h4 class="font-semibold text-xl text-white mb-2">08:30 - 09:00</h4>
+            <p class="text-slate-100">Ceremonia de inauguración</p>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-black/80 to-black/60 border border-cyanTech/40 p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition-all duration-300" data-aos="fade-up">
+            <!-- Hora -->
+            <div class="flex items-center gap-2 text-cyanTech text-lg font-semibold mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>09:00 - 09:30</span>
+            </div>
+            <!-- Título -->
+            <h4 class="text-2xl font-semibold text-white mb-4 leading-snug">
+              Colecistectomía y exploración de vías biliares: Abordaje laparoscópico
+            </h4>
+            <!-- Ponente -->
+            <div class="flex items-center gap-2 mb-1 text-slate-100">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cyanTech" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A4 4 0 018 16h8a4 4 0 012.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span class="text-lg font-medium">Dr. Emmanuel Duarte Albarrán</span>
+            </div>
+            <!-- Especialidad -->
+            <p class="text-slate-300 italic text-sm">
+              Cirujano General. Hospital Regional de Alta
+Especialidad “Dr. Juan Graham Casasús”. IMSS-Bienestar, Villahermosa, Tabasco.
+            </p>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-black/80 to-black/60 border border-cyanTech/40 p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition-all duration-300" data-aos="fade-up">
+            <!-- Hora -->
+            <div class="flex items-center gap-2 text-cyanTech text-lg font-semibold mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>09:30 - 10:00</span>
+            </div>
+
+            <!-- Título -->
+            <h4 class="text-2xl font-semibold text-white mb-4 leading-snug">
+              Apendicectomía laparoscópica
+            </h4>
+
+            <!-- Ponente -->
+            <div class="flex items-center gap-2 mb-1 text-slate-100">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cyanTech" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A4 4 0 018 16h8a4 4 0 012.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span class="text-lg font-medium">Dr. Juan José Álvarez Zapata</span>
+            </div>
+
+            <!-- Especialidad -->
+            <p class="text-slate-300 italic text-sm">
+              Cirujano General – Hospital Regional de Alta Especialidad “Dr. Juan Graham Casasús”. IMSS-Bienestar, Villahermosa, Tabasco
+            </p>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-black/80 to-black/60 border border-cyanTech/40 p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition-all duration-300" data-aos="fade-up">
+            <!-- Hora -->
+            <div class="flex items-center gap-2 text-cyanTech text-lg font-semibold mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>10:00 - 10:30</span>
+            </div>
+
+            <!-- Título -->
+            <h4 class="text-2xl font-semibold text-white mb-4 leading-snug">
+               Apendicectomia laparoscopica en el embarazo
+            </h4>
+
+            <!-- Ponente -->
+            <div class="flex items-center gap-2 mb-1 text-slate-100">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cyanTech" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A4 4 0 018 16h8a4 4 0 012.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span class="text-lg font-medium">Dra. Sabdi Ramos Moguel</span>
+            </div>
+
+            <!-- Especialidad -->
+            <p class="text-slate-300 italic text-sm">
+              Cirujana General. Hospital General “Dr. Manuel Gurría
+Urgell”. ISSSTE, Villahermosa, Tabasco
+            </p>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-black/80 to-black/60 border border-cyanTech/40 p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition-all duration-300 flex items-center justify-center">
+          <h4 class="text-2xl font-semibold text-cyanTech text-center">☕ 10:30 - 11:00 • Coffee Break</h4>
+        </div>
+
+          <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-black/80 to-black/60 border border-cyanTech/40 p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition-all duration-300" data-aos="fade-up">
+            <!-- Hora -->
+            <div class="flex items-center gap-2 text-cyanTech text-lg font-semibold mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>11:00 - 11:30</span>
+            </div>
+
+            <!-- Título -->
+            <h4 class="text-2xl font-semibold text-white mb-4 leading-snug">
+               Abdomen agudo, abordaje laparoscópico
+            </h4>
+
+            <!-- Ponente -->
+            <div class="flex items-center gap-2 mb-1 text-slate-100">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cyanTech" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A4 4 0 018 16h8a4 4 0 012.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span class="text-lg font-medium">Dr. José Antonio Robles Solís</span>
+            </div>
+
+            <!-- Especialidad -->
+            <p class="text-slate-300 italic text-sm">
+              Cirujano General, Hospital General “Dr. Manuel
+Gurría Urgell”, ISSSTE, Villahermosa, Tabasco.
+            </p>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-black/80 to-black/60 border border-cyanTech/40 p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition-all duration-300" data-aos="fade-up">
+            <!-- Hora -->
+            <div class="flex items-center gap-2 text-cyanTech text-lg font-semibold mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>11:30 - 12:00</span>
+            </div>
+
+            <!-- Título -->
+            <h4 class="text-2xl font-semibold text-white mb-4 leading-snug">
+               Cirugía Robótica aplicada a múltiples disciplinas quirúrgicas
+            </h4>
+
+            <!-- Ponente -->
+            <div class="flex items-center gap-2 mb-1 text-slate-100">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cyanTech" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A4 4 0 018 16h8a4 4 0 012.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span class="text-lg font-medium">Dr. Ricardo Blas Azotla</span>
+            </div>
+
+            <!-- Especialidad -->
+            <p class="text-slate-300 italic text-sm">
+              Cirujano Bariatra/Cirugía Robótica. Hospital Angeles Mocel. Ciudad de México
+            </p>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-black/80 to-black/60 border border-cyanTech/40 p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition-all duration-300" data-aos="fade-up">
+            <!-- Hora -->
+            <div class="flex items-center gap-2 text-cyanTech text-lg font-semibold mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>12:00 - 12:30</span>
+            </div>
+
+            <!-- Título -->
+            <h4 class="text-2xl font-semibold text-white mb-4 leading-snug">
+               Reparación endoscópica de las hernias de la pared abdominal en pacientes obesos
+            </h4>
+
+            <!-- Ponente -->
+            <div class="flex items-center gap-2 mb-1 text-slate-100">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cyanTech" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A4 4 0 018 16h8a4 4 0 012.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span class="text-lg font-medium">Dr. Ricardo Blas Azotla</span>
+            </div>
+
+            <!-- Especialidad -->
+            <p class="text-slate-300 italic text-sm">
+              Cirujano Bariatra/Cirugía Robótica. Hospital Angeles Mocel. Ciudad de México
+            </p>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-black/80 to-black/60 border border-cyanTech/40 p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition-all duration-300" data-aos="fade-up">
+            <!-- Hora -->
+            <div class="flex items-center gap-2 text-cyanTech text-lg font-semibold mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>12:30 - 13:00</span>
+            </div>
+
+            <!-- Título -->
+            <h4 class="text-2xl font-semibold text-white mb-4 leading-snug">
+               Ulcera gástrica perforada: abordaje laparoscópico
+            </h4>
+
+            <!-- Ponente -->
+            <div class="flex items-center gap-2 mb-1 text-slate-100">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cyanTech" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A4 4 0 018 16h8a4 4 0 012.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span class="text-lg font-medium">Dr. Ricardo Aranda Piedrasanta</span>
+            </div>
+
+            <!-- Especialidad -->
+            <p class="text-slate-300 italic text-sm">
+              Cirujano General. Hospital Regional de Alta
+Especialidad “Dr. Gustavo A. Rovirosa Pérez”. IMSS-Bienestar, Villahermosa, Tabasco
+            </p>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-black/80 to-black/60 border border-cyanTech/40 p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition-all duration-300" data-aos="fade-up">
+            <!-- Hora -->
+            <div class="flex items-center gap-2 text-cyanTech text-lg font-semibold mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>13:00 - 13:30</span>
+            </div>
+
+            <!-- Título -->
+            <h4 class="text-2xl font-semibold text-white mb-4 leading-snug">
+               Tratamiento quirúrgico de la obesidad: Abordaje laparoscópico
+            </h4>
+
+            <!-- Ponente -->
+            <div class="flex items-center gap-2 mb-1 text-slate-100">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-cyanTech" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A4 4 0 018 16h8a4 4 0 012.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span class="text-lg font-medium">Dr. Romeo Castillo Castellanos</span>
+            </div>
+
+            <!-- Especialidad -->
+            <p class="text-slate-300 italic text-sm">
+              Cirujano General, Cirujano Bariatra. Hospital
+Regional de Alta Especialidad “Dr. Juan Graham Casasús”.IMSS-Bienestar, Villahermosa, Tabasco
+            </p>
+          </div>    
+        </div>
+      </div>
+    <!-- Día 2 -->
+    <div class="mb-14" data-aos="fade-left">
+      <h3 class="text-2xl font-semibold text-cyanTech mb-6">07 de noviembre — Día 2</h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+
+        <!-- 1 -->
+        <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-black/80 to-black/60 border border-cyanTech/40 p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition-all duration-300">
+          <div class="flex items-center gap-2 text-cyanTech text-lg font-semibold mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>08:00 - 08:30</span>
+          </div>
+          <h4 class="text-2xl font-semibold text-white mb-4 leading-snug">Enfermedad diverticular del colon, abordaje laparoscópico.</h4>
+          <p class="text-lg font-medium text-white mb-1">Dra. Saraí Vidal Girón</p>
+          <p class="text-slate-300 italic text-sm mb-2">Cirujana Coloproctóloga. Hospital Ángeles Villahermosa, Tabasco.</p>
+        </div>
+
+        <!-- 2 -->
+        <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-black/80 to-black/60 border border-cyanTech/40 p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition-all duration-300">
+          <div class="flex items-center gap-2 text-cyanTech text-lg font-semibold mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>08:30 - 09:00</span>
+          </div>
+          <h4 class="text-2xl font-semibold text-white mb-4 leading-snug">Disrupción y reparación de la vía biliar por vía laparoscópica.</h4>
+          <p class="text-lg font-medium text-white mb-1">Dra. Sahadia Elizabeth del Rosario Castellanos Serrano</p>
+          <p class="text-slate-300 italic text-sm mb-2">Cirujana General. Especialista en reparación de la vía biliar. Hospital General de Zona No. 2 IMSS, Tuxtla Gutiérrez, Chiapas.</p>
+        </div>
+
+        <!-- 3 -->
+        <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-black/80 to-black/60 border border-cyanTech/40 p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition-all duration-300">
+          <div class="flex items-center gap-2 text-cyanTech text-lg font-semibold mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>09:00 - 09:30</span>
+          </div>
+          <h4 class="text-2xl font-semibold text-white mb-4 leading-snug">Plastia inguinal laparoscópica.</h4>
+          <p class="text-lg font-medium text-white mb-1">Dr. José Eduardo Pérez Vásquez</p>
+          <p class="text-slate-300 italic text-sm mb-2">Cirujano General. Presidente del Colegio de Cirujanos de Tabasco. Hospital Ángeles Villahermosa, Villahermosa, Tabasco.</p>
+        </div>
+
+        <!-- 4 -->
+        <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-black/80 to-black/60 border border-cyanTech/40 p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition-all duration-300">
+          <div class="flex items-center gap-2 text-cyanTech text-lg font-semibold mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>09:30 - 10:00</span>
+          </div>
+          <h4 class="text-2xl font-semibold text-white mb-4 leading-snug">Esplenectomía laparoscópica.</h4>
+          <p class="text-lg font-medium text-white mb-1">Dr. Gustavo Alberto García Fernández</p>
+          <p class="text-slate-300 italic text-sm mb-2">Cirujano General. Hospital Regional de Alta Especialidad “Dr. Gustavo A. Rovirosa Pérez”. IMSS-Bienestar, Villahermosa, Tabasco.</p>
+        </div>
+
+        <!-- 5 -->
+        <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-black/80 to-black/60 border border-cyanTech/40 p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition-all duration-300">
+          <div class="flex items-center gap-2 text-cyanTech text-lg font-semibold mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>10:00 - 10:30</span>
+          </div>
+          <h4 class="text-2xl font-semibold text-white mb-4 leading-snug">La endoscopia auxiliar en procedimientos quirúrgicos en cirugía general.</h4>
+          <p class="text-lg font-medium text-white mb-1">Dr. Guillermo Wilson Gómez</p>
+          <p class="text-slate-300 italic text-sm mb-2">Gastroenterólogo – Endoscopista. Hospital Regional de Alta Especialidad “Dr. Gustavo A. Rovirosa Pérez”. IMSS-Bienestar, Villahermosa, Tabasco.</p>
+        </div>
+
+        <!-- 6 -->
+        <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-black/80 to-black/60 border border-cyanTech/40 p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition-all duration-300 flex items-center justify-center">
+          <h4 class="text-2xl font-semibold text-cyanTech text-center">☕ 10:30 - 11:00 • Coffee Break</h4>
+        </div>
+
+        <!-- 7 -->
+        <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-black/80 to-black/60 border border-cyanTech/40 p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition-all duration-300">
+          <div class="flex items-center gap-2 text-cyanTech text-lg font-semibold mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>11:00 - 11:30</span>
+          </div>
+          <h4 class="text-2xl font-semibold text-white mb-4 leading-snug">Cáncer de colon: Abordaje laparoscópico.</h4>
+          <p class="text-lg font-medium text-white mb-1">Dr. Julián Zili García</p>
+          <p class="text-slate-300 italic text-sm mb-2">Cirujano Coloproctólogo. Hospital Star Médica, Veracruz, Veracruz.</p>
+          <p class="text-red-400 font-semibold text-sm">Confirmado</p>
+        </div>
+
+        <!-- 8 -->
+        <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-black/80 to-black/60 border border-cyanTech/40 p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition-all duration-300">
+          <div class="flex items-center gap-2 text-cyanTech text-lg font-semibold mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>11:30 - 12:00</span>
+          </div>
+          <h4 class="text-2xl font-semibold text-white mb-4 leading-snug">Tratamiento quirúrgico de ERGE abordaje laparoscópico.</h4>
+          <p class="text-lg font-medium text-white mb-1">Dr. Javier García Álvarez</p>
+          <p class="text-slate-300 italic text-sm mb-2">Cirujano General. Cirugía laparoscópica avanzada. Hospital Juárez de México, Ciudad de México.</p>
+          <p class="text-red-400 font-semibold text-sm">Confirmado</p>
+        </div>
+
+        <!-- 9 -->
+        <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-black/80 to-black/60 border border-cyanTech/40 p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition-all duration-300">
+          <div class="flex items-center gap-2 text-cyanTech text-lg font-semibold mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>12:00 - 12:30</span>
+          </div>
+          <h4 class="text-2xl font-semibold text-white mb-4 leading-snug">Nefrectomía laparoscópica.</h4>
+          <p class="text-lg font-medium text-white mb-1">Dr. Domingo de la Cruz Cárdenas</p>
+          <p class="text-slate-300 italic text-sm mb-2">Cirujano Urólogo. Hospital de Especialidades Visual Láser, Villahermosa, Tabasco.</p>
+          <p class="text-red-400 font-semibold text-sm">Confirmado</p>
+        </div>
+
+        <!-- 10 -->
+        <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-black/80 to-black/60 border border-cyanTech/40 p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition-all duration-300">
+          <div class="flex items-center gap-2 text-cyanTech text-lg font-semibold mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>12:30 - 13:00</span>
+          </div>
+          <h4 class="text-2xl font-semibold text-white mb-4 leading-snug">La cirugía laparoscópica en el trauma abdominal.</h4>
+          <p class="text-lg font-medium text-white mb-1">Dr. Raúl Bautista Cruz</p>
+          <p class="text-slate-300 italic text-sm mb-2">Cirujano General / Cirujano de Trauma. Hospital Regional de Alta Especialidad “Dr. Gustavo A. Rovirosa Pérez”. IMSS-Bienestar, Villahermosa, Tabasco.</p>
+          <p class="text-red-400 font-semibold text-sm">Confirmado</p>
+        </div>
+
+        <!-- 11 -->
+        <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-black/80 to-black/60 border border-cyanTech/40 p-6 shadow-md hover:shadow-glow-cyan hover:-translate-y-1 transition-all duration-300">
+          <div class="flex items-center gap-2 text-cyanTech text-lg font-semibold mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>13:00 - 13:30</span>
+          </div>
+          <h4 class="text-2xl font-semibold text-white mb-4 leading-snug">Cirugía laparoscópica en pediatría.</h4>
+          <p class="text-lg font-medium text-white mb-1">Dr. César M. Calderón Alipi</p>
+          <p class="text-slate-300 italic text-sm mb-2">Cirujano Pediatra / Cirugía Laparoscópica Avanzada. Hospital del Niño “Dr. Rodolfo Nieto Padrón”. IMSS-Bienestar, Villahermosa, Tabasco.</p>
+          <p class="text-red-400 font-semibold text-sm">Confirmado</p>
+        </div>
+
+
+      </div>
+    </div>
+
+    
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="py-24 px-6">
+    <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+      <h2 class="text-4xl font-bold mb-8 text-white drop-shadow-[0_0_10px_rgba(0,255,255,0.3)]">Contacto</h2>
+      <p class="text-slate-100 text-xl mb-8">¿Dudas o comentarios? Escríbenos o llámanos.</p>
+
+      <p class="text-slate-100 mb-3 text-lg">
+        Teléfono: <a href="tel:+5219615720434" class="text-cyanTech font-semibold">961 572 0434</a>
+      </p>
+      <p class="text-slate-100 mb-10 text-lg">
+        Email: <a href="mailto:ccg.laparoscopia@gmail.com" class="text-cyanTech font-semibold">ccg.laparoscopia@gmail.com</a>
+      </p>
+
+      <div class="mt-12 w-full h-72 md:h-96 rounded-xl overflow-hidden border border-white/20 shadow-glow-cyan">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.657391341109!2d-92.9400284!3d17.9955058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85edd84a14be7e55%3A0x39282527af11e3c8!2sHyatt%20Regency%20Villahermosa!5e0!3m2!1ses!2smx!4v1697040000000!5m2!1ses!2smx"
+          width="100%" height="100%" style="border:0;"
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="rounded-xl">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
-  <footer class="py-8 border-t border-white/10 text-center text-slate-400 bg-black/60 backdrop-blur-sm">
+  <footer class="py-8 border-t border-white/10 text-center text-slate-300 bg-black/60 backdrop-blur-sm text-lg">
     <small>© I Congreso de Cirugía — Abordaje Laparoscópico • Todos los derechos reservados</small>
   </footer>
 
-  <!-- Librerías -->
+  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.2/tsparticles.bundle.min.js"></script>
-
-  <!-- JS principal -->
   <script src="js/particles-config.js"></script>
   <script>
-    // Inicializar AOS
     AOS.init({ duration: 700, once: true });
-
-    // Acordeones
-    document.querySelectorAll(".accordion-toggle").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const content = btn.nextElementSibling;
-        const icon = btn.querySelector("svg");
-        const open = !content.classList.contains("hidden");
-
-        document.querySelectorAll(".accordion-content").forEach(el => el.classList.add("hidden"));
-        document.querySelectorAll(".accordion-toggle svg").forEach(svg => svg.classList.remove("rotate-180"));
-
-        if (!open) {
-          content.classList.remove("hidden");
-          icon.classList.add("rotate-180");
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const id = link.getAttribute('href');
+        if (id.length > 1) {
+          e.preventDefault();
+          const target = document.querySelector(id);
+          const offset = 80;
+          const pos = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top: pos, behavior: 'smooth' });
         }
       });
     });
   </script>
-  <script>
-  // Scroll suave al hacer clic en los enlaces del menú
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', e => {
-      const targetId = link.getAttribute('href');
-      if (targetId.length > 1) {
-        e.preventDefault();
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          const headerOffset = 80; // Altura del header fijo
-          const elementPosition = targetElement.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth"
-          });
-        }
-      }
-    });
-  });
-</script>
-
 </body>
 </html>
