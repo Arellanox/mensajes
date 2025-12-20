@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Un regalo para ti</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes wave {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(10deg); }
+      50% { transform: rotate(-10deg); }
+      75% { transform: rotate(10deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    .fade-up { animation: fadeUp 1.2s ease-out forwards; }
+    .wave { animation: wave 1.4s ease-in-out 2; transform-origin: bottom center; }
+    #snow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+  </style>
+</head>
+
+<body class="min-h-screen bg-gradient-to-b from-slate-900 via-blue-900 to-indigo-900 flex items-center justify-center overflow-y-auto">
+  <canvas id="snow"></canvas>
+
+  <!-- AUDIO -->
+  <audio id="music" src="assets/music.mp3" loop></audio>
+
+  <!-- TARJETA CERRADA -->
+  <div id="closedCard" class="bg-white/95 rounded-3xl shadow-2xl p-8 mx-4 max-w-sm w-full text-center fade-up">
+      
+    <span style="font-size: 100px;">🎁</span>
+
+    <h1 class="text-2xl font-bold text-slate-800 mb-4">
+      Hay un regalo esperándote
+    </h1>
+
+    <p class="text-gray-600 mb-6">
+      No ocupa espacio,  
+      pero insiste en ser abierto.
+    </p>
+
+    <button
+      onclick="openGift()"
+      class="bg-indigo-700 text-white px-6 py-3 rounded-full text-lg shadow-lg active:scale-95 transition">
+      Abrir regalo
+    </button>
+  </div>
+
+  <!-- TARJETA ABIERTA -->
+<div id="openCard" class="hidden bg-white/95 rounded-3xl shadow-2xl p-8 mx-4 max-w-sm w-full text-center max-h-[85vh] overflow-y-auto">
+
+
+    <!-- CAPIBARA -->
+    <img id="capibara"
+         src="assets/capibara.png"
+         class="w-40 mx-auto mb-6 cursor-pointer fade-up">
+
+    <h1 class="text-3xl font-bold text-indigo-800 mb-6 fade-up">
+      🎄Feliz Navidad ✨
+    </h1>
+
+    <p class="text-gray-800 text-lg leading-relaxed mb-6 fade-up" style="animation-delay:.3s">
+      La Navidad no siempre llega con luces.
+      A veces se parece más a un gesto,
+      a alguien que piensa en ti
+      sin hacer ruido.
+    </p>
+
+    <p class="text-gray-700 text-lg leading-relaxed mb-10 fade-up" style="animation-delay:.6s">
+      Ojalá estos días te encuentren
+      con el corazón abrigado
+      y la calma suficiente
+      para quedarte donde sonríes.
+    </p>
+
+    <p>
+      <i>
+        “Este kit no soluciona el trabajo, pero ayuda a no renunciar impulsivamente. Úsalo con café, sarcasmo y dignidad godín.”
+      </i>
+    </p>
+
+    <!-- MENSAJE SECRETO -->
+    <div id="secretMessage" class="opacity-0 transition-opacity duration-1000">
+      <p id="secretText" class="text-sm text-gray-500 italic"></p>
+    </div>
+
+    <div class="h-64"></div>
+  </div>
+
+  <script>
+    const SECRET_NAME = "Andy"; // ← CAMBIA AQUÍ
+    const music = document.getElementById('music');
+    const capibara = document.getElementById('capibara');
+    const secret = document.getElementById('secretMessage');
+    const secretText = document.getElementById('secretText');
+
+
+    function fadeInAudio(audio) {
+      audio.volume = 0;
+      audio.play();
+      const fade = setInterval(() => {
+        if (audio.volume < 0.4) audio.volume += 0.02;
+        else clearInterval(fade);
+      }, 100);
+    }
+
+function openGift() {
+  document.getElementById('closedCard').classList.add('hidden');
+  document.getElementById('openCard').classList.remove('hidden');
+  fadeInAudio(music);
+
+  // Reinicia la animación del saludo
+  capibara.classList.remove('wave');
+  void capibara.offsetWidth; // fuerza reflow
+  capibara.classList.add('wave');
+}
+
+
+
+
+    function revealSecret() {
+      secret.classList.remove('opacity-0');
+      let text = `— ${SECRET_NAME}, este mensaje apareció solo porque supiste quedarte.`;
+      let i = 0;
+      secretText.textContent = "";
+
+      const type = setInterval(() => {
+        secretText.textContent += text[i];
+        i++;
+        if (i >= text.length) clearInterval(type);
+      }, 50);
+    }
+
+    let revealed = false;
+    let stayTimer = null;
+    const openCard = document.getElementById('openCard');
+
+    openCard.addEventListener('scroll', () => {
+    if (revealed) return;
+
+    const scrollPosition = openCard.scrollTop + openCard.clientHeight;
+    const bottom = openCard.scrollHeight - 20;
+
+    // Llegó al final
+    if (scrollPosition >= bottom) {
+        if (!stayTimer) {
+        stayTimer = setTimeout(() => {
+            revealSecret();
+            revealed = true;
+        }, 2000);
+        }
+    } else {
+        clearTimeout(stayTimer);
+        stayTimer = null;
+    }
+    });
+
+    const canvas = document.getElementById("snow");
+    const ctx = canvas.getContext("2d");
+
+    let width, height;
+    let flakes = [];
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resize);
+    resize();
+
+    class Snowflake {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.radius = Math.random() * 3 + 1;
+        this.speed = Math.random() * 1 + 0.5;
+        this.wind = Math.random() * 0.5 - 0.25;
+      }
+
+      update() {
+        this.y += this.speed;
+        this.x += this.wind;
+
+        if (this.y > height) {
+          this.reset();
+          this.y = 0;
+        }
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(255,255,255,0.8)";
+        ctx.fill();
+      }
+    }
+
+    function initSnow(count = 120) {
+      flakes = [];
+      for (let i = 0; i < count; i++) {
+        flakes.push(new Snowflake());
+      }
+    }
+
+    function animateSnow() {
+      ctx.clearRect(0, 0, width, height);
+      flakes.forEach(flake => {
+        flake.update();
+        flake.draw();
+      });
+      requestAnimationFrame(animateSnow);
+    }
+
+    initSnow();
+    animateSnow();
+
+
+
+   
+  </script>
+
+</body>
+</html>
