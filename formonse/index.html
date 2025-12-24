@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Milagro de Navidad 🎄✨</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.18), transparent 60%),
+        linear-gradient(to bottom, #020617, #0b1220, #020617);
+    }
+
+    canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+    }
+
+    /* ✨ Entrada tierna */
+    @keyframes gentleIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+        filter: blur(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    /* 🌸 Salida suave */
+    @keyframes gentleOut {
+      from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.98);
+        filter: blur(6px);
+      }
+    }
+
+    .gentle-enter {
+      animation: gentleIn 1.6s ease-out forwards;
+    }
+
+    .gentle-exit {
+      animation: gentleOut 1s ease-in forwards;
+    }
+
+    /* Scroll invisible */
+.scroll-hidden {
+  overflow-y: auto;
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE */
+}
+
+.scroll-hidden::-webkit-scrollbar {
+  display: none;               /* Chrome, Safari */
+}
+
+/* Animación línea por línea */
+.line {
+  opacity: 0;
+  transform: translateY(12px);
+  filter: blur(4px);
+  animation: revealLine 1s ease-out forwards;
+}
+
+@keyframes revealLine {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* 🌬️ Tarjeta que respira */
+@keyframes breathe {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.005);
+    box-shadow: 0 35px 70px rgba(0,0,0,0.45);
+  }
+}
+
+  .breathing {
+    animation: breathe 8s ease-in-out infinite;
+  }
+
+
+
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center px-4 text-white">
+
+  <!-- ❄️ NIEVE -->
+  <canvas id="snow"></canvas>
+
+  <!-- TARJETA -->
+  <div id="card" class="relative z-10 max-w-lg w-full opacity-0">
+    <div id="cardInner"
+        class="bg-white/10 backdrop-blur-xl
+                border border-white/20
+                rounded-3xl shadow-2xl
+                px-8 py-12 text-center overflow-hidden">
+
+
+    <!-- LUCES -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-6 left-10 w-2 h-2 bg-yellow-200 rounded-full blur-sm"></div>
+      <div class="absolute top-16 right-12 w-2 h-2 bg-red-300 rounded-full blur-sm"></div>
+      <div class="absolute bottom-20 left-16 w-2 h-2 bg-green-300 rounded-full blur-sm"></div>
+      <div class="absolute bottom-10 right-20 w-2 h-2 bg-yellow-100 rounded-full blur-sm"></div>
+    </div>
+
+    <!-- 🎄 PINO -->
+    <div class="absolute -top-0 left-1/2 -translate-x-1/2">
+      <div class="w-14 h-14 rounded-full bg-white/90 text-slate-900
+                  flex items-center justify-center shadow-lg text-2xl">
+        🎄
+      </div>
+    </div>
+
+    <!-- CONTENIDO -->
+    <div id="content" class="gentle-enter">
+
+      <p class="text-xs tracking-[0.35em] uppercase text-slate-300 mb-6 mt-6">
+        Feliz Navidad
+      </p>
+
+      <h1 class="text-3xl md:text-4xl font-serif leading-snug mb-6">
+        Que esta noche<br>
+        te abrace despacio
+      </h1>
+
+      <p class="text-slate-200 leading-relaxed text-base mb-10">
+        La Navidad no siempre llega con ruido.
+        A veces entra bajito,
+        como una luz encendida en la esquina de la casa,
+        como alguien que piensa en ti
+        sin decirlo en voz alta.
+        <br><br>
+        Esta tarjeta es eso:
+        un pequeño gesto,
+        una pausa bonita,
+        un deseo sincero de que estés bien.
+      </p>
+
+      <button
+        onclick="openGift()"
+        class="px-10 py-3 rounded-full
+               bg-white/90 text-slate-900 font-medium
+               hover:bg-white transition shadow-lg">
+        Abrir el regalo
+      </button>
+
+    </div>
+  </div>
+  </div>
+
+  <script>
+    // ✨ Entrada inicial
+    window.addEventListener("load", () => {
+      document.getElementById("card").classList.add("gentle-enter");
+    });
+
+    function openGift() {
+       const music = document.getElementById("bgMusic");
+
+      music.volume = 0.35;
+      music.play().catch(() => {});
+      const content = document.getElementById("content");
+
+      // Salida suave
+      content.classList.remove("gentle-enter");
+      content.classList.add("gentle-exit");
+
+      // Reemplazar contenido tras la animación
+      setTimeout(() => {
+        content.innerHTML = `
+  <h2 class="text-2xl md:text-3xl font-serif mb-6 line">
+    Para ti 🤍
+  </h2>
+
+  <div class="max-h-[55vh] scroll-hidden space-y-6 text-left px-1">
+
+    <p class="text-slate-100 leading-relaxed text-lg line">
+      ¿Sabes la definición de milagro?<br>
+      Es la suspensión temporal de las leyes naturales.
+    </p>
+
+    <p class="text-slate-200 leading-relaxed text-base line">
+      A veces no ocurre en los hospitales ni en los altares, sino en algo tan aparentemente
+      inofensivo como una fecha que se equivoca. El 5 de diciembre estaba escrito con tinta firme,
+      como se escriben las despedidas inevitables. Un año es un año, decían los papeles.
+      Un ciclo cerrado, asentía el mundo. Y Monse debía irse, como se van las estaciones cuando nadie las detiene.
+    </p>
+
+    <p class="text-slate-200 leading-relaxed text-base line">
+      Pero el tiempo —que también sabe sentir— decidió tropezar. Se estiró. Se corrigió.
+      Se abrió como una grieta diminuta por donde entró la vida. Y en ese espacio que no debía existir
+      sucedieron cosas que no caben en un reglamento: risas probándose outfits, regalos buscando manos exactas,
+      adornos que convirtieron un set de fotos en refugio, una posada más para quedarse a vivir en la memoria…
+      y también el trayecto de regreso, ese milagro silencioso de llevarla a casa, donde el camino se vuelve conversación, pausa, acompañamiento, y el día se resiste a terminar.
+    </p>
+
+    <p class="text-slate-200 leading-relaxed text-base line">
+      Hay milagros que no hacen ruido. No cambian el mundo, pero cambian el peso de los días.
+      Regalan tiempo, que es la forma más delicada de la esperanza.
+      Y ahora, incluso antes de llegar, también es milagro saber que el último día de 2025
+      podrá compartirse, como quien enciende una luz y se niega a apagarla todavía.
+    </p>
+
+    <p class="text-slate-200 leading-relaxed text-base line">
+      Nada de esto estaba en el plan. Por eso importa.
+      Porque los milagros no llegan con trompetas:
+      llegan como tiempo extra, como risas añadidas,
+      como días que no debían existir y deciden quedarse.
+    </p>
+
+    <p class="text-slate-200 leading-relaxed text-base line">
+      Así que sí, el universo hizo una pequeña trampa.
+    </p>
+
+    <p class="text-slate-300 italic text-center line">
+      Y yo, agradecido,<br>
+      le llamo a todo esto...<br>
+      <span class="text-slate-100 font-medium">... mi milagro de Navidad.</span>
+    </p>
+
+  </div>
+`;
+const card = document.getElementById("cardInner");
+const scrollArea = content.querySelector(".scroll-hidden");
+
+let breatheTimeout;
+
+// Cuando empieza a leer
+scrollArea.addEventListener("scroll", () => {
+  card.classList.add("breathing");
+
+  // Si deja de leer, se detiene suavemente
+  clearTimeout(breatheTimeout);
+  breatheTimeout = setTimeout(() => {
+    card.classList.remove("breathing");
+  }, 2000);
+});
+
+
+        // Re-entrada tierna
+        content.classList.remove("gentle-exit");
+        content.classList.add("gentle-enter");
+
+      }, 900);
+    }
+
+    // ❄️ NIEVE
+    const canvas = document.getElementById("snow");
+    const ctx = canvas.getContext("2d");
+
+    let width, height;
+    const flakes = [];
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    for (let i = 0; i < 200; i++) {
+      flakes.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        r: Math.random() * 3 + 0.5,
+        d: Math.random() + 1
+      });
+    }
+
+    function drawSnow() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = "rgba(255,255,255,0.8)";
+      ctx.beginPath();
+      for (const f of flakes) {
+        ctx.moveTo(f.x, f.y);
+        ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+      }
+      ctx.fill();
+      moveSnow();
+    }
+
+    function moveSnow() {
+      for (const f of flakes) {
+        f.y += Math.pow(f.d, 2);
+        f.x += Math.sin(f.y * 0.01);
+        if (f.y > height) {
+          f.y = -10;
+          f.x = Math.random() * width;
+        }
+      }
+    }
+
+    function animateSnow() {
+      drawSnow();
+      requestAnimationFrame(animateSnow);
+    }
+    animateSnow();
+  </script>
+<audio id="bgMusic" preload="auto" loop>
+  <source src="music/river.mp3" type="audio/mpeg">
+</audio>
+
+</body>
+</html>
