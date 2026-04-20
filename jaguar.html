@@ -1,49 +1,300 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jaguar Zoe</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>El Jaguar - Zoe</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:Montserrat,sans-serif;background:#041008;color:#fff;overflow-x:hidden}section{min-height:100vh;padding:6vw;display:flex;align-items:center;justify-content:center}.bg{position:fixed;inset:0;background:radial-gradient(circle at top,#2e7d32,#08140b 60%,#041008);z-index:-3}.card{max-width:1050px;background:#00000066;padding:24px;border-radius:30px;backdrop-filter:blur(10px)}.title{font-size:clamp(2.5rem,8vw,5.5rem);font-weight:900;text-shadow:0 0 20px #ffd54f;text-align:center}.zoe{text-align:center;color:#ffeb3b;font-size:clamp(1.5rem,4vw,2.5rem)}.subtitle{text-align:center;color:#fff9c4;margin:10px 0 20px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.fact{background:#ffffff12;padding:14px;border-radius:22px;text-align:center}.fact img,.heroimg{width:100%;height:300px;object-fit:cover;border-radius:20px}.jag{position:fixed;right:2%;bottom:2%;font-size:110px;z-index:5}.footer{text-align:center;font-size:1.5rem}@media(max-width:800px){.grid{grid-template-columns:1fr}.jag{font-size:75px}}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Montserrat',sans-serif;
+  background:#041008;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+.bg{
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at top,#2e7d32,#08140b 60%,#041008);
+  z-index:-3;
+}
+
+.mist{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(90deg,transparent,#ffffff08,transparent);
+  animation:mist 12s linear infinite;
+  z-index:-2;
+  pointer-events:none;
+}
+
+@keyframes mist{
+  from{transform:translateX(-100%);}
+  to{transform:translateX(100%);}
+}
+
+section{
+  min-height:100vh;
+  padding:6vw;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.card{
+  width:min(1100px,100%);
+  background:#00000066;
+  backdrop-filter:blur(10px);
+  border:1px solid #ffffff1f;
+  border-radius:28px;
+  padding:24px;
+  box-shadow:0 20px 50px #00000055;
+}
+
+.zoe{
+  text-align:center;
+  font-size:clamp(1.4rem,4vw,2.5rem);
+  color:#ffeb3b;
+  margin-bottom:10px;
+}
+
+.title{
+  text-align:center;
+  font-size:clamp(2.6rem,8vw,5.8rem);
+  font-weight:900;
+  text-shadow:0 0 20px #ffd54f;
+}
+
+.subtitle{
+  text-align:center;
+  color:#fff9c4;
+  margin:10px 0 20px;
+  font-size:1.1rem;
+}
+
+.heroimg,
+.fact img{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+  border-radius:20px;
+  display:block;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.fact{
+  background:#ffffff10;
+  border-radius:22px;
+  padding:14px;
+  text-align:center;
+}
+
+.fact h2{
+  margin:12px 0 8px;
+  font-size:1.3rem;
+}
+
+.fact p{
+  font-size:1rem;
+  line-height:1.5;
+}
+
+.footer{
+  text-align:center;
+  font-size:1.5rem;
+}
+
+.jag{
+  position:fixed;
+  right:2%;
+  bottom:2%;
+  font-size:100px;
+  z-index:10;
+  filter:drop-shadow(0 0 12px gold);
+}
+
+.badge{
+  margin-top:14px;
+  display:inline-block;
+  background:#ffd54f;
+  color:#000;
+  padding:10px 18px;
+  border-radius:999px;
+  font-weight:700;
+}
+
+@media(max-width:800px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .heroimg,
+  .fact img{
+    height:250px;
+  }
+
+  .jag{
+    font-size:72px;
+  }
+}
 </style>
 </head>
+
 <body>
-<div class='bg'></div>
-<audio id='ambiente' loop><source src='https://cdn.pixabay.com/audio/2022/03/15/audio_65d6c6f5b6.mp3' type='audio/mpeg'></audio>
-<audio id='rugido'><source src='https://cdn.pixabay.com/audio/2023/03/14/audio_7b1d6a4d55.mp3' type='audio/mpeg'></audio>
-<div class='jag'>🐆</div>
-<section><div class='card hero'>
-<div class='zoe'>🌟 CARTEL DE ZOE 🌟</div>
-<h1 class='title'>EL JAGUAR</h1>
-<p class='subtitle'>El felino más grande de América</p>
-<img class='heroimg' src='https://arellanox.github.io/mensajes/jaguar_portada.png'>
-</div></section>
-<section><div class='card grid reveal'>
-<div class='fact'><img src='jaguar_selva.png'><h2>🌎 Vive en la selva</h2><p>Habita en México y Sudamérica.</p></div>
-<div class='fact'><img src='jaguar_fuerte.png'><h2>💪 Muy fuerte</h2><p>Su mordida rompe caparazones.</p></div>
-</div></section>
-<section><div class='card grid reveal'>
-<div class='fact'><img src='jaguar_nadador.png'><h2>🏊 Gran nadador</h2><p>Le gusta cruzar ríos.</p></div>
-<div class='fact'><img src='jaguar_conservacion.png'><h2>🛡️ Protégelo</h2><p>Está en peligro por la caza.</p></div>
-</div></section>
-<section><div class='card footer reveal'><p>🐾 ¡Cuidemos al jaguar! 🌿</p></div></section>
+
+<div class="bg"></div>
+<div class="mist"></div>
+
+<audio id="rugido" preload="auto">
+  <source src="https://cdn.pixabay.com/audio/2023/03/14/audio_7b1d6a4d55.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="ambiente" loop preload="auto">
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_65d6c6f5b6.mp3" type="audio/mpeg">
+</audio>
+
+<div class="jag">🐆</div>
+
+<!-- PORTADA -->
+<section>
+  <div class="card hero">
+    <div class="zoe">🌟 CARTEL DE ZOE 🌟</div>
+    <h1 class="title">EL JAGUAR</h1>
+    <p class="subtitle">El felino más grande de América</p>
+
+    <img
+      class="heroimg"
+      src="https://arellanox.github.io/mensajes/jaguar_portada.png"
+      alt="Jaguar portada">
+  </div>
+</section>
+
+<!-- SELVA -->
+<section>
+  <div class="card grid reveal">
+    <div class="fact">
+      <img
+        src="https://arellanox.github.io/mensajes/jaguar_selva.png"
+        alt="Jaguar en la selva">
+      <h2>🌎 Vive en la selva</h2>
+      <p>Habita en México, Centroamérica y Sudamérica.</p>
+    </div>
+
+    <div class="fact">
+      <img
+        src="https://arellanox.github.io/mensajes/jaguar_fuerte.png"
+        alt="Jaguar fuerte">
+      <h2>💪 Muy fuerte</h2>
+      <p>Tiene una mordida muy poderosa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NADADOR + CONSERVACIÓN -->
+<section>
+  <div class="card grid reveal">
+    <div class="fact">
+      <img
+        src="https://arellanox.github.io/mensajes/jaguar_nadador.png"
+        alt="Jaguar nadando">
+      <h2>🏊 Gran nadador</h2>
+      <p>Le gusta nadar y cruzar ríos.</p>
+    </div>
+
+    <div class="fact">
+      <img
+        src="https://arellanox.github.io/mensajes/jaguar_conservacion.png"
+        alt="Conservación del jaguar">
+      <h2>🛡️ Protégelo</h2>
+      <p>Está en peligro por la caza y la pérdida de su hogar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section>
+  <div class="card footer reveal">
+    <p>🐾 ¡Cuidemos al jaguar y la naturaleza! 🌿</p>
+    <div class="badge">Hecho por Zoe</div>
+  </div>
+</section>
+
 <script>
 gsap.registerPlugin(ScrollTrigger);
-window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('rugido').play();document.getElementById('ambiente').play();},500)});
-gsap.from('.hero',{scale:.6,opacity:0,duration:1.4});
-document.querySelectorAll('.reveal').forEach(el=>gsap.from(el,{y:100,opacity:0,duration:1.1,scrollTrigger:{trigger:el,start:'top 80%'}}));
-gsap.to('.jag',{x:-window.innerWidth*.8,ease:'none',scrollTrigger:{scrub:1,start:'top top',end:'bottom bottom'}});
-window.addEventListener('click',()=>{document.getElementById('rugido').play();document.getElementById('ambiente').play();});
+
+/* Rugido + ambiente */
+function iniciarAudio(){
+  const rugido = document.getElementById("rugido");
+  const ambiente = document.getElementById("ambiente");
+
+  rugido.play().catch(()=>{});
+  ambiente.play().catch(()=>{});
+
+  window.removeEventListener("click", iniciarAudio);
+  window.removeEventListener("touchstart", iniciarAudio);
+}
+
+window.addEventListener("load", ()=>{
+  setTimeout(iniciarAudio, 500);
+});
+
+window.addEventListener("click", iniciarAudio);
+window.addEventListener("touchstart", iniciarAudio);
+
+/* Animación portada */
+gsap.from(".hero",{
+  scale:.75,
+  opacity:0,
+  duration:1.4,
+  ease:"power3.out"
+});
+
+/* Secciones */
+document.querySelectorAll(".reveal").forEach(el=>{
+  gsap.from(el,{
+    y:100,
+    opacity:0,
+    duration:1.1,
+    ease:"power2.out",
+    scrollTrigger:{
+      trigger:el,
+      start:"top 82%"
+    }
+  });
+});
+
+/* Jaguar flotante */
+gsap.to(".jag",{
+  x:-window.innerWidth*0.82,
+  rotation:8,
+  ease:"none",
+  scrollTrigger:{
+    scrub:1,
+    start:"top top",
+    end:"bottom bottom"
+  }
+});
 </script>
-<script>
-// Nota: reemplaza las URLs por las imágenes generadas/exportadas si las guardas localmente.
-document.querySelectorAll('.heroimg')[0].src='https://images.unsplash.com/photo-1618826411640-d6df44dd3f7a?auto=format&fit=crop&w=1200&q=80';
-document.querySelectorAll('.fact img')[0].src='https://images.unsplash.com/photo-1618826411640-d6df44dd3f7a?auto=format&fit=crop&w=1200&q=80';
-document.querySelectorAll('.fact img')[1].src='https://images.unsplash.com/photo-1618826411640-d6df44dd3f7a?auto=format&fit=crop&w=1200&q=80';
-document.querySelectorAll('.fact img')[2].src='https://images.unsplash.com/photo-1618826411640-d6df44dd3f7a?auto=format&fit=crop&w=1200&q=80';
-document.querySelectorAll('.fact img')[3].src='https://images.unsplash.com/photo-1618826411640-d6df44dd3f7a?auto=format&fit=crop&w=1200&q=80';
-</script>
-</body></html>
+
+</body>
+</html>
