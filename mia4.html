@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>🎉 Mía Mariel Cumple 4 Años – Guerreras del K-Pop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #7b2ff7;
+      --purple-light: #c56bff;
+      --pink: #ff4081;
+      --pink-light: #ff80ab;
+      --pink-soft: #f8bbd0;
+      --lavender: #ce93d8;
+      --white: #ffffff;
+      --bg-dark: #120229;
+      --bg-mid: #1e0442;
+      --card-bg: rgba(255,255,255,0.06);
+      --border: rgba(195,107,255,0.45);
+      --glow-purple: #c56bff;
+      --glow-pink: #ff4081;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      background: var(--bg-dark);
+      color: var(--white);
+      font-family: 'Nunito', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      overscroll-behavior: none;
+    }
+
+    /* ── Layout ── */
+    #app {
+      position: relative;
+      width: 100%;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: radial-gradient(ellipse at 30% 20%, #2d0a5e 0%, var(--bg-dark) 60%),
+                  radial-gradient(ellipse at 80% 80%, #1a0040 0%, transparent 60%);
+    }
+
+    /* ── Stars background ── */
+    #stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: #fff;
+      animation: twinkle var(--d, 2s) ease-in-out infinite alternate;
+      animation-delay: var(--delay, 0s);
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.15; transform: scale(1); }
+      to   { opacity: 0.95; transform: scale(1.5); }
+    }
+
+    /* ── Floating ambient emojis ── */
+    .ambient {
+      position: fixed;
+      font-size: clamp(16px, 4vw, 22px);
+      pointer-events: none;
+      z-index: 1;
+      animation: amb-float var(--fd, 3s) ease-in-out infinite alternate;
+      animation-delay: var(--fdelay, 0s);
+      opacity: 0.75;
+    }
+
+    @keyframes amb-float {
+      from { transform: translateY(0)   rotate(-12deg); }
+      to   { transform: translateY(-20px) rotate(12deg); }
+    }
+
+    /* ── Slide container ── */
+    #slider {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      padding: 0 16px 70px;
+      z-index: 10;
+    }
+
+    /* ── Individual screen ── */
+    .screen {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 28px 20px 16px;
+      animation: slide-in 0.55s cubic-bezier(.4,0,.2,1) both;
+    }
+
+    .screen.active { display: flex; }
+
+    @keyframes slide-in {
+      from { opacity: 0; transform: scale(0.93) translateY(12px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    /* ── Shared components ── */
+    .eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--lavender);
+      margin-bottom: 10px;
+      opacity: 0.85;
+    }
+
+    .glitter-line {
+      width: 75%;
+      height: 2px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, transparent, var(--glow-purple), var(--pink), var(--glow-purple), transparent);
+      margin: 12px auto;
+      animation: gl-shine 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes gl-shine {
+      from { opacity: 0.45; }
+      to   { opacity: 1; }
+    }
+
+    /* ── Screen 1 ── */
+    .age-ring {
+      width: clamp(70px, 22vw, 88px);
+      height: clamp(70px, 22vw, 88px);
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(28px, 10vw, 40px);
+      font-weight: 900;
+      color: #fff;
+      box-shadow: 0 0 0 4px rgba(195,107,255,.3), 0 0 28px var(--glow-purple);
+      animation: ring-pulse 2s ease-in-out infinite alternate;
+      margin-bottom: 14px;
+    }
+
+    @keyframes ring-pulse {
+      from { box-shadow: 0 0 0 4px rgba(195,107,255,.3), 0 0 20px var(--glow-purple); transform: scale(1); }
+      to   { box-shadow: 0 0 0 8px rgba(255,128,171,.2), 0 0 44px var(--glow-pink);   transform: scale(1.06); }
+    }
+
+    .title-main {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(20px, 6.5vw, 28px);
+      font-weight: 900;
+      line-height: 1.2;
+      color: #fff;
+      text-shadow: 0 0 22px var(--glow-purple), 0 0 44px rgba(195,107,255,.5);
+      animation: text-glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes text-glow {
+      from { text-shadow: 0 0 12px var(--glow-purple); }
+      to   { text-shadow: 0 0 28px #ff80ff, 0 0 56px var(--purple); }
+    }
+
+    .subtitle {
+      font-size: clamp(12px, 3.5vw, 15px);
+      color: var(--pink-soft);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-top: 6px;
+    }
+
+    .tag-pill {
+      display: inline-block;
+      background: rgba(195,107,255,.15);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 16px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--pink-soft);
+      margin-top: 10px;
+    }
+
+    .hearts-row {
+      font-size: clamp(18px, 5vw, 22px);
+      letter-spacing: 5px;
+      margin-top: 10px;
+      animation: hearts-beat 1.4s ease-in-out infinite alternate;
+    }
+
+    @keyframes hearts-beat {
+      from { transform: scale(1);   opacity: .75; }
+      to   { transform: scale(1.1); opacity: 1; }
+    }
+
+    /* ── Screen 2 ── */
+    .hero-icon {
+      font-size: clamp(50px, 16vw, 70px);
+      display: block;
+      margin-bottom: 10px;
+      animation: hero-bounce 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes hero-bounce {
+      from { transform: translateY(0) scale(1); }
+      to   { transform: translateY(-10px) scale(1.08); }
+    }
+
+    .body-text {
+      font-size: clamp(13px, 3.8vw, 16px);
+      color: #f3e5f5;
+      font-weight: 700;
+      line-height: 1.65;
+    }
+
+    .accent { color: #ff80ff; text-shadow: 0 0 10px var(--pink); }
+
+    /* ── Screen 3 ── */
+    .detail-card {
+      width: 100%;
+      max-width: 320px;
+      background: var(--card-bg);
+      border: 1.5px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      margin: 10px auto;
+      backdrop-filter: blur(8px);
+    }
+
+    .detail-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 13px 18px;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+
+    .detail-row:last-child { border-bottom: none; }
+
+    .d-icon { font-size: 24px; flex-shrink: 0; }
+
+    .d-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--pink-soft);
+      margin-bottom: 2px;
+    }
+
+    .d-val {
+      font-size: clamp(13px, 4vw, 15px);
+      font-weight: 900;
+      color: #fff;
+    }
+
+    /* ── Screen 4 ── */
+    .theme-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(17px, 5.5vw, 22px);
+      font-weight: 900;
+      color: var(--lavender);
+      text-shadow: 0 0 16px var(--purple);
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+
+    .icons-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      font-size: clamp(28px, 9vw, 38px);
+      margin: 14px 0;
+    }
+
+    .dance {
+      animation: dance var(--d2, 1s) ease-in-out infinite alternate;
+    }
+
+    @keyframes dance {
+      from { transform: scale(1) rotate(-10deg); }
+      to   { transform: scale(1.15) rotate(10deg); }
+    }
+
+    /* ── Screen 5 ── */
+    .notes-row {
+      font-size: clamp(22px, 7vw, 30px);
+      letter-spacing: 8px;
+      margin: 8px 0;
+      animation: notes-drift 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes notes-drift {
+      from { transform: translateY(0);   opacity: .7; }
+      to   { transform: translateY(-8px); opacity: 1; }
+    }
+
+    .celeb-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(15px, 5vw, 19px);
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 0 12px var(--glow-purple);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    /* ── Screen 6 ── */
+    .confirm-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(17px, 5.5vw, 22px);
+      font-weight: 900;
+      color: #fff;
+      text-shadow: 0 0 18px var(--glow-purple);
+      line-height: 1.3;
+      margin-bottom: 14px;
+    }
+
+    .wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 26px;
+      border-radius: 32px;
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(13px, 4vw, 16px);
+      font-weight: 900;
+      box-shadow: 0 0 22px rgba(37,211,102,.5);
+      animation: wa-pulse 1.6s ease-in-out infinite alternate;
+      margin: 12px 0 6px;
+    }
+
+    @keyframes wa-pulse {
+      from { box-shadow: 0 0 14px rgba(37,211,102,.4); transform: scale(1); }
+      to   { box-shadow: 0 0 34px rgba(37,211,102,.85); transform: scale(1.04); }
+    }
+
+    .wa-link-text {
+      font-size: 12px;
+      color: var(--lavender);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .confirm-note {
+      font-size: 12px;
+      color: var(--pink-soft);
+      font-style: italic;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    /* ── Navigation ── */
+    .nav-bar {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px 20px;
+      background: linear-gradient(to top, rgba(18,2,41,.9) 80%, transparent);
+      z-index: 50;
+      gap: 12px;
+    }
+
+    .nav-btn {
+      background: rgba(195,107,255,.18);
+      border: 1.5px solid var(--border);
+      color: #fff;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s, transform .15s;
+      flex-shrink: 0;
+    }
+
+    .nav-btn:active { background: rgba(195,107,255,.4); transform: scale(0.93); }
+    .nav-btn:disabled { opacity: 0.3; cursor: default; }
+
+    .dots {
+      display: flex;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 4px;
+      background: rgba(255,255,255,.25);
+      cursor: pointer;
+      transition: all .35s ease;
+    }
+
+    .dot.active {
+      width: 22px;
+      background: var(--purple-light);
+      box-shadow: 0 0 8px var(--glow-purple);
+    }
+
+    /* ── Sparkle particles ── */
+    .sparkle-el {
+      position: fixed;
+      pointer-events: none;
+      z-index: 5;
+      animation: sp-anim var(--sp-d, .9s) ease-out both;
+    }
+
+    @keyframes sp-anim {
+      0%   { opacity: 0;   transform: scale(0) translateY(0); }
+      25%  { opacity: 1;   transform: scale(1.3) translateY(-10px); }
+      75%  { opacity: .7;  transform: scale(1) translateY(-26px); }
+      100% { opacity: 0;   transform: scale(.4) translateY(-42px); }
+    }
+
+    /* ── Responsive fine-tuning ── */
+    @media (max-height: 650px) {
+      .screen { padding: 18px 18px 10px; }
+      .age-ring { width: 64px; height: 64px; }
+      .detail-row { padding: 10px 16px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="stars"></div>
+
+<!-- Ambient floating emojis -->
+<span class="ambient" style="top:4%;left:4%;--fd:2.6s;--fdelay:.2s">💜</span>
+<span class="ambient" style="top:5%;right:5%;--fd:3.1s;--fdelay:.6s">🌟</span>
+<span class="ambient" style="top:48%;left:2%;--fd:2.3s;--fdelay:1s">🎵</span>
+<span class="ambient" style="top:50%;right:2%;--fd:3.4s;--fdelay:.4s">💗</span>
+<span class="ambient" style="bottom:12%;left:4%;--fd:2.8s;--fdelay:.9s">✨</span>
+<span class="ambient" style="bottom:10%;right:4%;--fd:2.1s;--fdelay:1.3s">🎶</span>
+
+<div id="app">
+  <div id="slider">
+
+    <!-- ══ PANTALLA 1 ══ -->
+    <section class="screen active" id="s0" aria-label="Pantalla 1 de 6">
+      <div class="eyebrow">✨ Invitación Especial ✨</div>
+      <div class="age-ring">4</div>
+      <h1 class="title-main">¡MÍA MARIEL<br>CUMPLE 4 AÑOS!</h1>
+      <div class="glitter-line"></div>
+      <p class="subtitle">🎤 ¡Las Guerreras del K-Pop están de fiesta! 🎤</p>
+      <span class="tag-pill">⚔️ Rumi · Las Guerreras del K-Pop ⚔️</span>
+      <div class="hearts-row">💜💗💜💗💜</div>
+    </section>
+
+    <!-- ══ PANTALLA 2 ══ -->
+    <section class="screen" id="s1" aria-label="Pantalla 2 de 6">
+      <div class="eyebrow">💜 Nuestra Guerrera 💜</div>
+      <span class="hero-icon">🥷💜</span>
+      <p class="body-text">
+        ¡Nuestra pequeña <span class="accent">guerrera K-Pop</span> está<br>
+        celebrando su cumpleaños<br>y ¡te quiere ahí! 🎉
+      </p>
+      <div class="glitter-line"></div>
+      <p class="body-text" style="font-size:13px;color:var(--pink-soft);">
+        Únete a la mejor fiesta de baile,<br>música y K-Pop del año ✨
+      </p>
+      <div class="hearts-row">💜🎵💗🎶💜</div>
+    </section>
+
+    <!-- ══ PANTALLA 3 ══ -->
+    <section class="screen" id="s2" aria-label="Pantalla 3 de 6">
+      <div class="eyebrow">📋 Detalles de la Fiesta</div>
+      <div class="detail-card">
+        <div class="detail-row">
+          <span class="d-icon">📅</span>
+          <div>
+            <div class="d-label">Fecha</div>
+            <div class="d-val">Viernes 27 de Junio</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <span class="d-icon">⏰</span>
+          <div>
+            <div class="d-label">Hora</div>
+            <div class="d-val">4:00 PM</div>
+          </div>
+        </div>
+        <div class="detail-row">
+          <span class="d-icon">📍</span>
+          <div>
+            <div class="d-label">Lugar</div>
+            <div class="d-val">Casa de la Madrina Diana</div>
+          </div>
+        </div>
+      </div>
+      <div class="glitter-line"></div>
+      <p style="font-size:13px;color:var(--pink-soft);font-weight:700;">¡No faltes a la fiesta más K-Pop del año! 🌟</p>
+    </section>
+
+    <!-- ══ PANTALLA 4 ══ -->
+    <section class="screen" id="s3" aria-label="Pantalla 4 de 6">
+      <div class="eyebrow">⚔️ Temática Especial</div>
+      <h2 class="theme-title">RUMI 💜<br>Las Guerreras del K-Pop</h2>
+      <div class="glitter-line"></div>
+      <div class="icons-row">
+        <span class="dance" style="--d2:.85s">🥷</span>
+        <span class="dance" style="--d2:1.15s">⚔️</span>
+        <span class="dance" style="--d2:.7s">💜</span>
+        <span class="dance" style="--d2:1.35s">🎤</span>
+        <span class="dance" style="--d2:.95s">✨</span>
+      </div>
+      <p class="body-text">
+        👗 <span class="accent">¡Viste tu mejor outfit K-Pop</span><br>
+        y únete a la fiesta guerrera!
+      </p>
+      <p style="font-size:13px;color:var(--pink-soft);font-weight:700;margin-top:6px;">
+        Colores: morado 💜 rosa 💗 blanco 🤍
+      </p>
+    </section>
+
+    <!-- ══ PANTALLA 5 ══ -->
+    <section class="screen" id="s4" aria-label="Pantalla 5 de 6">
+      <div class="eyebrow">🎉 ¡A Celebrar!</div>
+      <div class="notes-row">🎵🎶🎵🎶🎵</div>
+      <h2 class="celeb-title">
+        ¡Vamos a celebrar con<br>baile, música y mucho K-Pop!
+      </h2>
+      <div class="glitter-line"></div>
+      <p class="body-text" style="font-size:14px;">
+        <span class="accent">¡Mía Mariel</span> espera verte en<br>
+        su fiesta de guerrera K-Pop! 💜
+      </p>
+      <div class="hearts-row" style="font-size:26px;letter-spacing:7px;margin-top:12px;">✨💜✨💗✨</div>
+    </section>
+
+    <!-- ══ PANTALLA 6 ══ -->
+    <section class="screen" id="s5" aria-label="Pantalla 6 de 6">
+      <div class="eyebrow">📲 Confirma tu Asistencia</div>
+      <h2 class="confirm-title">¡CONFIRMA TU<br>PRESENCIA! 🎊</h2>
+      <div class="glitter-line"></div>
+      <a class="wa-btn" href="https://wa.link/45pnjh" target="_blank" rel="noopener">
+        <span style="font-size:22px">💬</span>
+        Confirmar por WhatsApp
+      </a>
+      <div class="wa-link-text">wa.link/45pnjh</div>
+      <p class="confirm-note">
+        📝 ¡No olvides confirmar para que<br>
+        podamos preparar todo para ti! 💜✨
+      </p>
+      <div class="hearts-row" style="font-size:18px;margin-top:10px;">💜💗🌟💗💜</div>
+    </section>
+
+  </div><!-- /slider -->
+</div><!-- /app -->
+
+<!-- Bottom nav bar -->
+<div class="nav-bar" role="navigation" aria-label="Navegación de pantallas">
+  <button class="nav-btn" id="prev-btn" onclick="move(-1)" aria-label="Anterior">‹</button>
+  <div class="dots" id="dots"></div>
+  <button class="nav-btn" id="next-btn" onclick="move(1)" aria-label="Siguiente">›</button>
+</div>
+
+<script>
+  const TOTAL = 6;
+  let current = 0;
+  let timer = null;
+
+  /* ── Stars ── */
+  (function buildStars() {
+    const bg = document.getElementById('stars');
+    for (let i = 0; i < 70; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      const sz = Math.random() * 2.5 + 0.8;
+      s.style.cssText = [
+        `width:${sz}px`, `height:${sz}px`,
+        `top:${Math.random()*100}%`, `left:${Math.random()*100}%`,
+        `--d:${(Math.random()*3+1).toFixed(1)}s`,
+        `--delay:${(Math.random()*4).toFixed(1)}s`
+      ].join(';');
+      bg.appendChild(s);
+    }
+  })();
+
+  /* ── Dots ── */
+  const dotsEl = document.getElementById('dots');
+  for (let i = 0; i < TOTAL; i++) {
+    const d = document.createElement('button');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', `Ir a pantalla ${i+1}`);
+    d.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(d);
+  }
+
+  function updateDots() {
+    dotsEl.querySelectorAll('.dot').forEach((d, i) => {
+      d.className = 'dot' + (i === current ? ' active' : '');
+    });
+    document.getElementById('prev-btn').disabled = current === 0;
+    document.getElementById('next-btn').disabled = current === TOTAL - 1;
+  }
+
+  /* ── Navigate ── */
+  function goTo(idx) {
+    if (idx < 0 || idx >= TOTAL) return;
+    document.getElementById('s' + current).classList.remove('active');
+    current = idx;
+    const next = document.getElementById('s' + current);
+    next.classList.add('active');
+    next.style.animation = 'none';
+    requestAnimationFrame(() => {
+      next.style.animation = '';
+    });
+    updateDots();
+    spawnSparkles();
+  }
+
+  function move(dir) {
+    clearInterval(timer);
+    goTo(current + dir);
+    startAuto();
+  }
+
+  function startAuto() {
+    clearInterval(timer);
+    timer = setInterval(() => {
+      if (current < TOTAL - 1) goTo(current + 1);
+      else clearInterval(timer);
+    }, 5800);
+  }
+
+  /* ── Sparkles ── */
+  function spawnSparkles() {
+    const emojis = ['✨','💜','💗','🌟','⭐','💫','🎵'];
+    for (let i = 0; i < 7; i++) {
+      const el = document.createElement('div');
+      el.className = 'sparkle-el';
+      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      const dur = (0.6 + Math.random() * 0.7).toFixed(2);
+      el.style.cssText = [
+        `left:${8 + Math.random()*84}%`,
+        `top:${15 + Math.random()*65}%`,
+        `font-size:${10 + Math.floor(Math.random()*13)}px`,
+        `--sp-d:${dur}s`,
+        `animation-delay:${(Math.random()*0.35).toFixed(2)}s`
+      ].join(';');
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 1800);
+    }
+  }
+
+  /* ── Touch/swipe ── */
+  let touchStartX = 0;
+  document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 45) {
+      clearInterval(timer);
+      goTo(current + (dx < 0 ? 1 : -1));
+      startAuto();
+    }
+  }, { passive: true });
+
+  /* ── Init ── */
+  updateDots();
+  startAuto();
+  setTimeout(spawnSparkles, 900);
+</script>
+</body>
+</html>
