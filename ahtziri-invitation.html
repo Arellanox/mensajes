@@ -554,17 +554,474 @@
         height: 180px;
       }
     }
+
+    /* =========================================================
+       EXPERIENCIA PREMIUM DE SCROLL
+       ========================================================= */
+
+    :root {
+      --pink: #ec4899;
+      --purple: #a855f7;
+      --orange: #ff6b35;
+      --yellow: #fcd34d;
+      --cyan: #22d3ee;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(168,85,247,.12), transparent 35%),
+        linear-gradient(to bottom, #080d1d, #111827 45%, #080d1d);
+    }
+
+    /* Capa de partículas */
+    #particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.65);
+      box-shadow: 0 0 12px rgba(255,255,255,.55);
+      animation: particleFloat linear infinite;
+    }
+
+    @keyframes particleFloat {
+      from {
+        transform: translate3d(0, 110vh, 0) scale(.4);
+        opacity: 0;
+      }
+      15% { opacity: .8; }
+      85% { opacity: .8; }
+      to {
+        transform: translate3d(var(--drift), -15vh, 0) scale(1.15);
+        opacity: 0;
+      }
+    }
+
+    /* Secciones: la animación ahora depende del scroll */
+    section {
+      opacity: .15;
+      transform: translateY(80px) scale(.96);
+      transition:
+        opacity 1.1s cubic-bezier(.22,1,.36,1),
+        transform 1.1s cubic-bezier(.22,1,.36,1);
+      isolation: isolate;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(
+          120deg,
+          transparent 20%,
+          rgba(255,255,255,.035) 50%,
+          transparent 80%
+        );
+      transform: translateX(-100%);
+      transition: transform 1.4s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    section.visible::before {
+      transform: translateX(100%);
+    }
+
+    /* Contenido con profundidad */
+    section .content {
+      transform: translateY(calc(var(--scroll-offset, 0px) * -.08));
+      transition: transform .15s linear;
+      will-change: transform;
+    }
+
+    /* Blobs con parallax */
+    section .blob {
+      will-change: transform;
+      transition: transform .15s linear;
+    }
+
+    /* Brillo ambiental */
+    .ambient-glow {
+      position: absolute;
+      width: 45vw;
+      height: 45vw;
+      max-width: 500px;
+      max-height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(236,72,153,.12), transparent 68%);
+      filter: blur(15px);
+      pointer-events: none;
+      z-index: 0;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Entrada cinematográfica */
+    .magic-emoji,
+    .cake-emoji,
+    .vibe-emoji {
+      filter: drop-shadow(0 0 25px rgba(236,72,153,.35));
+      will-change: transform;
+    }
+
+    .magic-emoji {
+      animation:
+        bounce 2s infinite,
+        magicalGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes magicalGlow {
+      0%,100% { filter: drop-shadow(0 0 10px rgba(236,72,153,.25)); }
+      50% { filter: drop-shadow(0 0 35px rgba(252,211,77,.65)); }
+    }
+
+    /* Nombre */
+    #discovery h2 {
+      letter-spacing: .08em;
+      text-shadow: 0 0 30px rgba(236,72,153,.18);
+      transform: scale(.88);
+      opacity: 0;
+      transition:
+        transform 1s cubic-bezier(.17,.67,.32,1.35),
+        opacity .8s ease;
+    }
+
+    #discovery.visible h2 {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    /* Pastel: deja de ser una simple rotación */
+    #discovery .cake-emoji {
+      animation: cakeFloat 3.5s ease-in-out infinite;
+    }
+
+    @keyframes cakeFloat {
+      0%,100% { transform: translateY(0) rotate(-3deg); }
+      50% { transform: translateY(-18px) rotate(3deg); }
+    }
+
+    /* Badge */
+    .personal-badge {
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 0 rgba(236,72,153,0);
+      transition: transform .4s ease, box-shadow .4s ease;
+    }
+
+    .personal-badge::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -120%;
+      width: 70%;
+      height: 200%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.28),
+        transparent
+      );
+      transform: rotate(20deg);
+      animation: badgeShine 4s ease-in-out infinite;
+    }
+
+    @keyframes badgeShine {
+      0%,55% { left: -120%; }
+      80%,100% { left: 150%; }
+    }
+
+    #discovery.visible .personal-badge {
+      transform: translateY(0);
+      box-shadow: 0 15px 50px rgba(236,72,153,.15);
+    }
+
+    /* Tarjetas 3D */
+    .details-grid {
+      perspective: 1200px;
+    }
+
+    .detail-card {
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(70px) rotateX(12deg) scale(.94);
+      transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.22,1,.36,1),
+        box-shadow .35s ease;
+      will-change: transform;
+    }
+
+    .detail-card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(
+        120deg,
+        transparent 20%,
+        rgba(255,255,255,.18),
+        transparent 80%
+      );
+      transform: translateX(-120%);
+      transition: transform .8s ease;
+      pointer-events: none;
+    }
+
+    .detail-card.revealed {
+      opacity: 1;
+      transform: translateY(0) rotateX(0) scale(1);
+    }
+
+    .detail-card.revealed::before {
+      transform: translateX(120%);
+    }
+
+    .detail-card:hover {
+      transform: translateY(-12px) rotateX(2deg) rotateY(-3deg) scale(1.025);
+      box-shadow: 0 25px 60px rgba(0,0,0,.28);
+    }
+
+    .detail-card .emoji {
+      display: inline-block;
+      transition: transform .4s cubic-bezier(.22,1,.36,1);
+    }
+
+    .detail-card:hover .emoji {
+      transform: scale(1.25) rotate(-8deg);
+    }
+
+    /* Lista de ambiente */
+    .vibe-list p {
+      opacity: 0;
+      transform: translateX(-60px);
+      transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.22,1,.36,1);
+    }
+
+    .vibe-list p:nth-child(even) {
+      transform: translateX(60px);
+    }
+
+    #atmosphere.visible .vibe-list p {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    #atmosphere.visible .vibe-list p:nth-child(1) { transition-delay: .15s; }
+    #atmosphere.visible .vibe-list p:nth-child(2) { transition-delay: .30s; }
+    #atmosphere.visible .vibe-list p:nth-child(3) { transition-delay: .45s; }
+    #atmosphere.visible .vibe-list p:nth-child(4) { transition-delay: .60s; }
+
+    .vibe-tagline {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 1s ease .8s, transform 1s ease .8s;
+    }
+
+    #atmosphere.visible .vibe-tagline {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* CTA final */
+    #cta .content {
+      position: relative;
+    }
+
+    #cta.visible .cta-title {
+      animation: finalTitle 1.2s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    @keyframes finalTitle {
+      0% {
+        opacity: 0;
+        transform: translateY(40px) scale(.85);
+        filter: blur(12px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    .whatsapp-btn {
+      box-shadow:
+        0 0 0 0 rgba(236,72,153,.4),
+        0 15px 40px rgba(236,72,153,.18);
+      animation: ctaPulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes ctaPulse {
+      0%,100% {
+        box-shadow:
+          0 0 0 0 rgba(236,72,153,.25),
+          0 15px 40px rgba(236,72,153,.18);
+      }
+      50% {
+        box-shadow:
+          0 0 0 14px rgba(236,72,153,0),
+          0 20px 55px rgba(255,107,53,.28);
+      }
+    }
+
+    /* Indicador de scroll */
+    .scroll-hint {
+      position: absolute;
+      left: 50%;
+      bottom: 28px;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+      color: rgba(255,255,255,.55);
+      font-size: .75rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      z-index: 20;
+      animation: hintFloat 2s ease-in-out infinite;
+    }
+
+    .scroll-mouse {
+      width: 23px;
+      height: 36px;
+      border: 2px solid rgba(255,255,255,.5);
+      border-radius: 14px;
+      position: relative;
+    }
+
+    .scroll-mouse::after {
+      content: "";
+      position: absolute;
+      width: 3px;
+      height: 7px;
+      left: 50%;
+      top: 7px;
+      transform: translateX(-50%);
+      border-radius: 4px;
+      background: white;
+      animation: mouseWheel 1.5s infinite;
+    }
+
+    @keyframes mouseWheel {
+      0% { opacity: 0; transform: translate(-50%,0); }
+      30% { opacity: 1; }
+      100% { opacity: 0; transform: translate(-50%,12px); }
+    }
+
+    @keyframes hintFloat {
+      0%,100% { margin-bottom: 0; }
+      50% { margin-bottom: 7px; }
+    }
+
+    /* Separadores luminosos */
+    .section-divider {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 90px;
+      z-index: 5;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          to bottom,
+          transparent,
+          rgba(8,13,29,.7)
+        );
+    }
+
+    /* Confeti */
+    .confetti {
+      position: fixed;
+      top: -20px;
+      width: 9px;
+      height: 15px;
+      z-index: 10000;
+      pointer-events: none;
+      opacity: 0;
+      animation: confettiFall 3.5s ease-out forwards;
+    }
+
+    @keyframes confettiFall {
+      0% {
+        opacity: 1;
+        transform: translate3d(0, -20px, 0) rotate(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translate3d(var(--x), 110vh, 0) rotate(var(--r));
+      }
+    }
+
+    /* Mejor feedback al tocar */
+    .whatsapp-btn span:first-child {
+      display: inline-block;
+      transition: transform .3s ease;
+    }
+
+    .whatsapp-btn:hover span:first-child {
+      transform: rotate(-12deg) scale(1.2);
+    }
+
+    /* Accesibilidad: usuarios que prefieren menos movimiento */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+
+      .particle {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section .content {
+        transform: none;
+      }
+
+      .scroll-hint {
+        bottom: 18px;
+      }
+
+      .detail-card:hover {
+        transform: translateY(-5px) scale(1.01);
+      }
+    }
+
   </style>
 </head>
 <body>
   <!-- Barra de progreso -->
   <div class="progress-bar" id="progressBar"></div>
+  <div id="particles" aria-hidden="true"></div>
 
   <!-- Sección 1: Misterio -->
   <section id="mystery" data-section="mystery">
     <div class="blob pink"></div>
     <div class="blob purple"></div>
     
+    <div class="ambient-glow" style="top: 45%; left: 50%;"></div>
     <div class="content">
       <div class="magic-emoji">✨</div>
       <h1>¡Espera un momento!</h1>
@@ -573,6 +1030,11 @@
         <path d="M10.5 1.5H9.5V4.5H10.5V1.5Z M14.5 3.5L13.7 4.3L16 6.6L16.8 5.8L14.5 3.5Z M5.5 3.5L3.2 5.8L4 6.6L6.3 4.3L5.5 3.5Z M10 7C7.24 7 5 9.24 5 12C5 14.76 7.24 17 10 17C12.76 17 15 14.76 15 12C15 9.24 12.76 7 10 7Z M10 8C12.21 8 14 9.79 14 12C14 14.21 12.21 16 10 16C7.79 16 6 14.21 6 12C6 9.79 7.79 8 10 8Z M9.5 10.5H10.5V13.5H9.5V10.5Z"></path>
       </svg>
     </div>
+    <div class="scroll-hint">
+      <span>Desliza</span>
+      <div class="scroll-mouse"></div>
+    </div>
+    <div class="section-divider"></div>
   </section>
 
   <!-- Sección 2: Descubrimiento -->
@@ -589,6 +1051,7 @@
         <p>Una invitación personal</p>
       </div>
     </div>
+    <div class="section-divider"></div>
   </section>
 
   <!-- Sección 3: Detalles -->
@@ -629,6 +1092,7 @@
         </div>
       </div>
     </div>
+    <div class="section-divider"></div>
   </section>
 
   <!-- Sección 4: Atmósfera -->
@@ -648,6 +1112,7 @@
       
       <p class="vibe-tagline">Este es el evento del verano que no querrás perderte</p>
     </div>
+    <div class="section-divider"></div>
   </section>
 
   <!-- Sección 5: Call to Action -->
@@ -723,6 +1188,206 @@
         });
       }
     });
+
+    // =========================================================
+    // EXPERIENCIA PREMIUM DE SCROLL
+    // =========================================================
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Crear partículas ambientales
+    const particlesContainer = document.getElementById('particles');
+
+    if (!reduceMotion && particlesContainer) {
+      const particleCount = window.innerWidth < 768 ? 65 : 120;
+
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('span');
+        particle.className = 'particle';
+
+        const size = Math.random() * 5 + 1.5;
+        const duration = Math.random() * 16 + 8;
+        const delay = Math.random() * -20;
+        const left = Math.random() * 100;
+        const drift = (Math.random() - 0.5) * 260;
+
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${left}%`;
+        particle.style.animationDuration = `${duration}s`;
+        particle.style.animationDelay = `${delay}s`;
+        particle.style.setProperty('--drift', `${drift}px`);
+        particle.style.opacity = `${Math.random() * 0.65 + 0.2}`;
+        particle.style.filter = `blur(${Math.random() * 1.2}px)`;
+
+        // Algunas partículas tienen un pequeño tono de color.
+        if (Math.random() > 0.72) {
+          const particleColors = ['#ec4899', '#a855f7', '#fcd34d', '#22d3ee', '#ffffff'];
+          particle.style.background =
+            particleColors[Math.floor(Math.random() * particleColors.length)];
+          particle.style.boxShadow = `0 0 14px ${particle.style.background}`;
+        }
+
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // Cache de secciones y elementos
+    const sections = [...document.querySelectorAll('section[data-section]')];
+    const detailCards = [...document.querySelectorAll('.detail-card')];
+    const blobs = [...document.querySelectorAll('.blob')];
+
+    // Parallax suave basado en la posición real de cada elemento
+    let ticking = false;
+
+    function updateScrollEffects() {
+      const viewportCenter = window.innerHeight / 2;
+
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const distance = rect.top + rect.height / 2 - viewportCenter;
+        const normalized = Math.max(-1, Math.min(1, distance / window.innerHeight));
+
+        section.style.setProperty('--scroll-offset', `${distance}px`);
+
+        // Profundidad del contenido
+        const content = section.querySelector('.content');
+        if (content && window.innerWidth > 768 && !reduceMotion) {
+          content.style.transform =
+            `translateY(${normalized * -24}px)`;
+        }
+      });
+
+      // Los blobs se mueven a diferentes velocidades
+      blobs.forEach((blob, index) => {
+        const parent = blob.closest('section');
+        if (!parent || reduceMotion) return;
+
+        const rect = parent.getBoundingClientRect();
+        const distance = rect.top + rect.height / 2 - viewportCenter;
+        const speed = 0.05 + (index % 4) * 0.025;
+
+        blob.style.transform =
+          `translate3d(0, ${-distance * speed}px, 0)`;
+      });
+
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateScrollEffects);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    updateScrollEffects();
+
+    // Reveal escalonado de tarjetas
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        const card = entry.target;
+        const index = detailCards.indexOf(card);
+
+        setTimeout(() => {
+          card.classList.add('revealed');
+        }, Math.max(0, index) * 180);
+
+        cardObserver.unobserve(card);
+      });
+    }, {
+      threshold: 0.18,
+      rootMargin: '0px 0px -8% 0px'
+    });
+
+    detailCards.forEach(card => {
+      cardObserver.observe(card);
+    });
+
+    // Efecto 3D siguiendo el mouse únicamente en escritorio
+    if (!reduceMotion && window.matchMedia('(pointer: fine)').matches) {
+      detailCards.forEach(card => {
+        card.addEventListener('mousemove', (event) => {
+          const rect = card.getBoundingClientRect();
+          const x = event.clientX - rect.left;
+          const y = event.clientY - rect.top;
+
+          const rotateY = ((x / rect.width) - .5) * 7;
+          const rotateX = ((y / rect.height) - .5) * -7;
+
+          card.style.transform =
+            `translateY(-10px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.025)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+        });
+      });
+    }
+
+    // Confeti cuando el CTA entra en pantalla
+    const ctaSection = document.getElementById('cta');
+    let confettiLaunched = false;
+
+    function launchConfetti() {
+      if (confettiLaunched || reduceMotion) return;
+      confettiLaunched = true;
+
+      const amount = window.innerWidth < 768 ? 45 : 75;
+
+      for (let i = 0; i < amount; i++) {
+        const piece = document.createElement('span');
+        piece.className = 'confetti';
+
+        const width = Math.random() * 6 + 5;
+        const height = Math.random() * 8 + 8;
+        const left = Math.random() * 100;
+        const x = (Math.random() - .5) * 500;
+        const rotation = (Math.random() * 1080 - 540);
+        const delay = Math.random() * .9;
+
+        piece.style.left = `${left}%`;
+        piece.style.width = `${width}px`;
+        piece.style.height = `${height}px`;
+        piece.style.background =
+          ['#ec4899','#a855f7','#ff6b35','#fcd34d','#22d3ee','#ffffff']
+          [Math.floor(Math.random() * 6)];
+
+        piece.style.setProperty('--x', `${x}px`);
+        piece.style.setProperty('--r', `${rotation}deg`);
+        piece.style.animationDelay = `${delay}s`;
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => piece.remove(), 5000);
+      }
+    }
+
+    if (ctaSection) {
+      const ctaObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            launchConfetti();
+            ctaObserver.disconnect();
+          }
+        });
+      }, { threshold: .45 });
+
+      ctaObserver.observe(ctaSection);
+    }
+
+    // Ocultar el indicador de scroll después de comenzar
+    const scrollHint = document.querySelector('.scroll-hint');
+
+    window.addEventListener('scroll', () => {
+      if (scrollHint) {
+        scrollHint.style.opacity = window.scrollY > 80 ? '0' : '1';
+        scrollHint.style.transition = 'opacity .5s ease';
+      }
+    }, { passive: true });
+
   </script>
 </body>
 </html>
