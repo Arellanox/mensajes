@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎂 Cumpleaños de Ahtziri - 28 años</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #0f172a, #0f172a, #1e293b);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Barra de progreso */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(to right, #ec4899, #ff6b35, #fcd34d);
+      z-index: 9999;
+      transition: width 0.3s ease;
+    }
+
+    /* Sections */
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 2rem;
+      overflow: hidden;
+      opacity: 0.5;
+      transform: translateY(40px);
+      transition: all 1s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Fondos abstractos */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      animation: pulse 8s infinite ease-in-out;
+    }
+
+    .blob.pink {
+      width: 400px;
+      height: 400px;
+      background: rgba(236, 72, 153, 0.2);
+    }
+
+    .blob.purple {
+      width: 350px;
+      height: 350px;
+      background: rgba(168, 85, 247, 0.2);
+      animation-delay: 1s;
+    }
+
+    .blob.orange {
+      width: 400px;
+      height: 400px;
+      background: rgba(255, 107, 53, 0.2);
+      animation-delay: 0.5s;
+    }
+
+    .blob.yellow {
+      width: 320px;
+      height: 320px;
+      background: rgba(252, 211, 77, 0.1);
+      animation-delay: 1.5s;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    .content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 800px;
+    }
+
+    /* Sección 1: Misterio */
+    #mystery {
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.8));
+    }
+
+    #mystery .blob.pink {
+      top: -200px;
+      left: -200px;
+    }
+
+    #mystery .blob.purple {
+      bottom: -150px;
+      right: -150px;
+    }
+
+    .magic-emoji {
+      font-size: 5rem;
+      margin-bottom: 2rem;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(to right, #ec4899, #a855f7, #ff6b35);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: pulse 2s infinite;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      color: #d1d5db;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .wave-icon {
+      width: 48px;
+      height: 48px;
+      color: #22d3ee;
+      margin: 0 auto;
+      animation: bounce 1s infinite;
+    }
+
+    /* Sección 2: Descubrimiento */
+    #discovery {
+      background: linear-gradient(to bottom, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.8));
+    }
+
+    #discovery .blob.orange {
+      top: 25%;
+      right: 0;
+    }
+
+    #discovery .blob.yellow {
+      bottom: 0;
+      left: 25%;
+    }
+
+    .cake-emoji {
+      font-size: 6rem;
+      margin-bottom: 2rem;
+      animation: spin 3s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    h2 {
+      font-size: 4rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      h2 {
+        font-size: 2.5rem;
+      }
+    }
+
+    .age-text {
+      font-size: 2rem;
+      font-weight: 900;
+      background: linear-gradient(to right, #ec4899, #ff6b35);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+    }
+
+    .personal-badge {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: rgba(236, 72, 153, 0.2);
+      border: 2px solid rgba(236, 72, 153, 0.5);
+      border-radius: 9999px;
+      backdrop-filter: blur(10px);
+      margin-top: 2rem;
+    }
+
+    .personal-badge p {
+      color: #f8a5d9;
+      font-weight: 600;
+    }
+
+    /* Sección 3: Detalles */
+    #details {
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.8));
+    }
+
+    #details .blob.yellow {
+      top: 0;
+      left: 0;
+      animation-delay: 0.7s;
+    }
+
+    #details .blob.orange {
+      bottom: 0;
+      right: 25%;
+      animation-delay: 1.2s;
+    }
+
+    .details-title {
+      font-size: 3rem;
+      font-weight: 900;
+      background: linear-gradient(to right, #ff6b35, #fcd34d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 3rem;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .detail-card {
+      padding: 2rem;
+      border-radius: 1.5rem;
+      border: 2px solid;
+      backdrop-filter: blur(10px);
+      opacity: 0;
+      transform: translateX(-40px);
+      animation: slideIn 0.8s ease-out forwards;
+    }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .detail-card.card1 { 
+      border-color: rgba(236, 72, 153, 0.3);
+      background: linear-gradient(to bottom-right, rgba(236, 72, 153, 0.1), rgba(168, 85, 247, 0.1));
+      animation-delay: 0s;
+    }
+
+    .detail-card.card2 { 
+      border-color: rgba(255, 107, 53, 0.3);
+      background: linear-gradient(to bottom-right, rgba(255, 107, 53, 0.1), rgba(252, 211, 77, 0.1));
+      animation-delay: 0.2s;
+    }
+
+    .detail-card.card3 { 
+      border-color: rgba(168, 85, 247, 0.3);
+      background: linear-gradient(to bottom-right, rgba(168, 85, 247, 0.1), rgba(236, 72, 153, 0.1));
+      animation-delay: 0.4s;
+    }
+
+    .detail-card.card4 { 
+      border-color: rgba(252, 211, 77, 0.3);
+      background: linear-gradient(to bottom-right, rgba(252, 211, 77, 0.1), rgba(255, 107, 53, 0.1));
+      animation-delay: 0.6s;
+    }
+
+    .detail-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .detail-card .emoji {
+      font-size: 2rem;
+    }
+
+    .detail-card .value {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .detail-card .description {
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    .card1 h3 { color: #f8a5d9; }
+    .card2 h3 { color: #fd9f66; }
+    .card3 h3 { color: #d8b4fe; }
+    .card4 h3 { color: #fde047; }
+
+    /* Sección 4: Atmósfera */
+    #atmosphere {
+      background: linear-gradient(to bottom, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.8));
+    }
+
+    #atmosphere .blob {
+      animation-duration: 3s;
+    }
+
+    .vibe-emoji {
+      font-size: 5rem;
+      margin-bottom: 2rem;
+      animation: bounce 1s infinite;
+    }
+
+    .vibe-title {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 2rem;
+    }
+
+    .vibe-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      font-size: 1.5rem;
+      color: #d1d5db;
+      margin-bottom: 2rem;
+    }
+
+    .vibe-list p {
+      animation: slideIn 0.8s ease-out forwards;
+    }
+
+    .vibe-tagline {
+      font-size: 1rem;
+      color: #6b7280;
+      font-style: italic;
+      margin-top: 3rem;
+    }
+
+    /* Sección 5: CTA */
+    #cta {
+      background: linear-gradient(to top, rgba(236, 72, 153, 0.1), transparent);
+    }
+
+    #cta .blob.pink {
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      animation-duration: 2s;
+    }
+
+    .cta-title {
+      font-size: 3rem;
+      font-weight: 900;
+      background: linear-gradient(to right, #ec4899, #ff6b35, #fcd34d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-subtitle {
+      font-size: 1.3rem;
+      color: #d1d5db;
+      margin-bottom: 1rem;
+    }
+
+    .personal-text {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 9999px;
+      background: linear-gradient(to right, #ec4899, #ff6b35, #fcd34d);
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4);
+    }
+
+    .whatsapp-btn:active {
+      transform: scale(0.95);
+    }
+
+    .whatsapp-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      transition: left 0.3s ease;
+    }
+
+    .whatsapp-btn:hover::before {
+      left: 100%;
+    }
+
+    .contact-info {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(107, 114, 128, 0.3);
+    }
+
+    .contact-label {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-number {
+      font-size: 1.5rem;
+      font-weight: 900;
+      background: linear-gradient(to right, #ec4899, #ff6b35);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .footer {
+      margin-top: 4rem;
+      color: #6b7280;
+      font-size: 0.85rem;
+    }
+
+    .footer p {
+      margin: 0.5rem 0;
+    }
+
+    /* Emoji flotante */
+    .floating-emoji {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      font-size: 3rem;
+      z-index: 40;
+      animation: bounce 2.5s infinite;
+    }
+
+    @media (max-width: 768px) {
+      .progress-bar {
+        height: 3px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      .details-title {
+        font-size: 2rem;
+      }
+
+      .cta-title {
+        font-size: 2rem;
+      }
+
+      .vibe-emoji {
+        font-size: 3rem;
+      }
+
+      .magic-emoji {
+        font-size: 3rem;
+      }
+
+      .cake-emoji {
+        font-size: 4rem;
+      }
+
+      .floating-emoji {
+        font-size: 2rem;
+        bottom: 1rem;
+        right: 1rem;
+      }
+
+      .whatsapp-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+      }
+
+      .blob {
+        filter: blur(60px);
+      }
+
+      .blob.pink {
+        width: 250px;
+        height: 250px;
+      }
+
+      .blob.purple {
+        width: 200px;
+        height: 200px;
+      }
+
+      .blob.orange {
+        width: 250px;
+        height: 250px;
+      }
+
+      .blob.yellow {
+        width: 180px;
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Barra de progreso -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Sección 1: Misterio -->
+  <section id="mystery" data-section="mystery">
+    <div class="blob pink"></div>
+    <div class="blob purple"></div>
+    
+    <div class="content">
+      <div class="magic-emoji">✨</div>
+      <h1>¡Espera un momento!</h1>
+      <p class="subtitle">Algo mágico está a punto de suceder...</p>
+      <svg class="wave-icon" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M10.5 1.5H9.5V4.5H10.5V1.5Z M14.5 3.5L13.7 4.3L16 6.6L16.8 5.8L14.5 3.5Z M5.5 3.5L3.2 5.8L4 6.6L6.3 4.3L5.5 3.5Z M10 7C7.24 7 5 9.24 5 12C5 14.76 7.24 17 10 17C12.76 17 15 14.76 15 12C15 9.24 12.76 7 10 7Z M10 8C12.21 8 14 9.79 14 12C14 14.21 12.21 16 10 16C7.79 16 6 14.21 6 12C6 9.79 7.79 8 10 8Z M9.5 10.5H10.5V13.5H9.5V10.5Z"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Sección 2: Descubrimiento -->
+  <section id="discovery" data-section="discovery">
+    <div class="blob orange"></div>
+    <div class="blob yellow"></div>
+    
+    <div class="content">
+      <div class="cake-emoji">🎂</div>
+      <h2>¡AHTZIRI!</h2>
+      <p class="age-text">Cumple 28 años</p>
+      <p class="subtitle">Y tú estás invitado a celebrar este momento especial</p>
+      <div class="personal-badge">
+        <p>Una invitación personal</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 3: Detalles -->
+  <section id="details" data-section="details">
+    <div class="blob yellow"></div>
+    <div class="blob orange"></div>
+    
+    <div class="content" style="width: 100%;">
+      <h2 class="details-title">Los Detalles</h2>
+      
+      <div class="details-grid">
+        <!-- Hora -->
+        <div class="detail-card card1">
+          <h3><span class="emoji">🕐</span> Hora</h3>
+          <p class="value">12:00 PM</p>
+          <p class="description">Mediodía de celebración</p>
+        </div>
+
+        <!-- Fecha -->
+        <div class="detail-card card2">
+          <h3><span class="emoji">🎂</span> Fecha</h3>
+          <p class="value">23 Agosto</p>
+          <p class="description">El día especial</p>
+        </div>
+
+        <!-- Dress Code -->
+        <div class="detail-card card3">
+          <h3><span class="emoji">👙</span> Dress Code</h3>
+          <p class="value">Traje de Baño</p>
+          <p class="description">¡Prepárate para diversión refrescante!</p>
+        </div>
+
+        <!-- Atmósfera -->
+        <div class="detail-card card4">
+          <h3><span class="emoji">🌊</span> Atmósfera</h3>
+          <p class="value">¡Pura Diversión!</p>
+          <p class="description">Risas, diversión e inolvidables recuerdos</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 4: Atmósfera -->
+  <section id="atmosphere" data-section="atmosphere">
+    <div class="blob pink"></div>
+    
+    <div class="content">
+      <div class="vibe-emoji">🏊‍♀️</div>
+      <h2 class="vibe-title">Prepárate para la diversión</h2>
+      
+      <div class="vibe-list">
+        <p>💦 Agua refrescante</p>
+        <p>🎉 Música y baile</p>
+        <p>🌟 Momentos inolvidables</p>
+        <p>🎊 ¡La mejor compañía!</p>
+      </div>
+      
+      <p class="vibe-tagline">Este es el evento del verano que no querrás perderte</p>
+    </div>
+  </section>
+
+  <!-- Sección 5: Call to Action -->
+  <section id="cta" data-section="cta">
+    <div class="blob pink"></div>
+    
+    <div class="content">
+      <h2 class="cta-title">¡Confirma tu asistencia!</h2>
+      <p class="cta-subtitle">No puedes faltar a este evento especial</p>
+      <p class="personal-text">Esta es una invitación personal para ti</p>
+      
+      <button class="whatsapp-btn" onclick="openWhatsApp()">
+        <span>📱</span>
+        <span>Confirmar por WhatsApp</span>
+      </button>
+      
+      <div class="contact-info">
+        <p class="contact-label">Número de contacto:</p>
+        <p class="contact-number">933 156 1577</p>
+      </div>
+      
+      <div class="footer">
+        <p>🎂 Cumpleaños de Ahtziri • 28 años • 23 de Agosto 🎂</p>
+        <p>✨ Una invitación personal ✨</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emoji flotante -->
+  <div class="floating-emoji">🎉</div>
+
+  <script>
+    // Función para abrir WhatsApp
+    function openWhatsApp() {
+      const message = "¡¡¡CONFIRMADÍSIMO!!! Ahtziri, prepárate que voy a llegar con TODO. Traje de  baño encendido, actitud FUEGO  y listo para hacer de tu cumpleaños LA FIESTA MÁS LEGENDARIA JAMÁS REGISTRADA en la historia. Este 28 va a ser ETERNO. ¡VAMO'! 🔥💧🎂✨💪";
+      const encodedMessage = encodeURIComponent(message);
+      window.open(`https://wa.me/9331561577?text=${encodedMessage}`, '_blank');
+    }
+
+    // Barra de progreso
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      
+      document.getElementById('progressBar').style.width = scrollPercent + '%';
+    });
+
+    // Detección de secciones visibles
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.3
+    });
+
+    document.querySelectorAll('section[data-section]').forEach((section) => {
+      observer.observe(section);
+    });
+
+    // Animaciones para tarjetas de detalles
+    window.addEventListener('scroll', () => {
+      const detailsSection = document.getElementById('details');
+      const rect = detailsSection.getBoundingClientRect();
+      
+      if (rect.top < window.innerHeight * 0.75) {
+        document.querySelectorAll('.detail-card').forEach((card) => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateX(0)';
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+     
