@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#fff7f1">
+<title>🎂 Cumpleaños de Ahtziri</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{
+cream:'#fff7f1',blush:'#fde2df',pink:'#e85d87',rose:'#d94d73',
+coral:'#f49a83',peach:'#f7c1a6',wine:'#8f3d57',sage:'#93a58b',lavender:'#aa91d7'
+}}}};
+</script>
+<style>
+html{scroll-behavior:smooth}body{margin:0;overflow-x:hidden;background:#fff7f1;color:#8f3d57;font-family:"Trebuchet MS","Segoe UI",sans-serif}
+.progress{position:fixed;top:0;left:0;width:0;height:5px;z-index:9999;background:linear-gradient(90deg,#e85d87,#f49a83,#aa91d7,#e85d87);box-shadow:0 0 14px #e85d8766}
+.section{min-height:100svh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:5rem 1.25rem;opacity:.12;transform:translateY(65px) scale(.98);transition:opacity 1s ease,transform 1s cubic-bezier(.22,1,.36,1);isolation:isolate}
+.section.visible{opacity:1;transform:none}.inner{width:min(100%,980px);position:relative;z-index:10}
+.blob{position:absolute;border-radius:999px;filter:blur(70px);pointer-events:none;animation:pulse 9s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:.85;transform:scale(1.08)}}
+.petal{position:absolute;width:80px;height:110px;border-radius:80% 20% 80% 20%;background:linear-gradient(135deg,#e85d8738,#f49a1360);pointer-events:none}
+.leaf{position:absolute;width:100px;height:36px;border-radius:100% 0 100% 0;background:#93a58b47;pointer-events:none}
+.sparkle{position:absolute;width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 15px #e85d87cc;animation:sparkle 2.8s ease-in-out infinite}
+@keyframes sparkle{0%,100%{opacity:.15;transform:scale(.5)}50%{opacity:1;transform:scale(1.4)}}
+.hero-title{background:linear-gradient(90deg,#d94d73,#e85d87,#f49a83,#aa91d7);-webkit-background-clip:text;background-clip:text;color:transparent}
+.float{animation:float 3s ease-in-out infinite}@keyframes float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-15px) rotate(3deg)}}
+.glass{background:#ffffff9e;border:1px solid #e85d8733;backdrop-filter:blur(14px);box-shadow:0 18px 50px #8f3d5714}
+.card{opacity:0;transform:translateY(55px) scale(.95);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1),box-shadow .3s ease}.card.show{opacity:1;transform:none}.card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 25px 55px #8f3d5724}
+.vibe{opacity:0;transform:translateX(-40px);transition:opacity .7s ease,transform .7s ease}.vibe:nth-child(even){transform:translateX(40px)}
+#atmosphere.visible .vibe{opacity:1;transform:none}#atmosphere.visible .vibe:nth-child(1){transition-delay:.1s}#atmosphere.visible .vibe:nth-child(2){transition-delay:.25s}#atmosphere.visible .vibe:nth-child(3){transition-delay:.4s}#atmosphere.visible .vibe:nth-child(4){transition-delay:.55s}
+.memory-card{opacity:0;transform:translateY(60px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1)}
+#memories.visible .memory-card{opacity:1;transform:none}
+#memories.visible .memory-card:nth-child(1){transition-delay:.1s}#memories.visible .memory-card:nth-child(2){transition-delay:.25s}#memories.visible .memory-card:nth-child(3){transition-delay:.4s}#memories.visible .memory-card:nth-child(4){transition-delay:.55s}
+.whatsapp{animation:wa 2.3s ease-in-out infinite}@keyframes wa{0%,100%{box-shadow:0 12px 35px #e85d872e}50%{box-shadow:0 18px 55px #e85d875c}}
+#particles{position:fixed;inset:0;z-index:4;pointer-events:none;overflow:hidden}.particle{position:absolute;border-radius:999px;animation:particle linear infinite}
+@keyframes particle{from{transform:translate3d(0,110vh,0) scale(.4);opacity:0}15%,85%{opacity:.7}to{transform:translate3d(var(--drift),-15vh,0) scale(1.15);opacity:0}}
+.confetti{position:fixed;top:-20px;z-index:10000;pointer-events:none;animation:fall 3.5s ease-out forwards}@keyframes fall{from{opacity:1;transform:translate3d(0,-20px,0) rotate(0)}to{opacity:0;transform:translate3d(var(--x),110vh,0) rotate(var(--r))}}
+.scroll-mouse{width:24px;height:38px;border:2px solid #8f3d5773;border-radius:18px;position:relative}.scroll-mouse:after{content:"";position:absolute;left:50%;top:7px;width:4px;height:8px;border-radius:99px;background:#e85d87;transform:translateX(-50%);animation:wheel 1.5s infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}#particles{display:none}}
+</style>
+</head>
+<body>
+<div id="progress" class="progress"></div><div id="particles"></div>
+
+<section id="mystery" class="section bg-gradient-to-b from-[#fff7f1] via-[#fde8e4] to-[#fff7f1]">
+<div class="blob bg-[#e85d87]/20 w-96 h-96 -left-48 -top-32"></div><div class="blob bg-[#aa91d7]/15 w-80 h-80 -right-40 bottom-0"></div>
+<div class="petal left-[-20px] top-[18%] rotate-[28deg]"></div><div class="petal right-[-25px] top-[8%] rotate-[130deg]"></div><div class="leaf left-[-15px] bottom-[18%] rotate-[-35deg]"></div>
+<div class="sparkle left-[20%] top-[22%]"></div><div class="sparkle right-[24%] top-[31%]" style="animation-delay:.7s"></div>
+<div class="inner text-center"><div class="float text-7xl sm:text-8xl mb-7">✨</div>
+<h1 class="hero-title text-5xl sm:text-7xl md:text-8xl font-black tracking-tight mb-6">¡Espera un momento!</h1>
+<p class="text-xl sm:text-2xl md:text-3xl font-light text-[#a64d68]">Algo mágico está a punto de suceder...</p>
+<div id="scrollHint" class="mt-12 flex flex-col items-center gap-3 text-xs uppercase tracking-[.3em] text-[#a64d68]/60"><span>Desliza</span><div class="scroll-mouse"></div></div></div>
+</section>
+
+<section id="discovery" class="section bg-gradient-to-b from-[#fff7f1] via-[#fde2df] to-[#fff7f1]">
+<div class="blob bg-[#f49a83]/20 w-[430px] h-[430px] -right-48 top-[12%]"></div><div class="blob bg-[#f7c1a6]/25 w-80 h-80 left-[10%] bottom-[-100px]"></div>
+<div class="inner text-center"><div class="float text-8xl sm:text-9xl mb-7">🎂</div>
+<h2 class="text-6xl sm:text-8xl md:text-9xl font-black tracking-[.08em] text-[#9d4662]">¡AHTZIRI!</h2>
+<p class="text-3xl sm:text-5xl font-black mt-3 mb-6 bg-gradient-to-r from-[#e85d87] to-[#f49a83] bg-clip-text text-transparent">Cumple 28 años</p>
+<p class="text-xl sm:text-2xl text-[#a64d68] font-light max-w-2xl mx-auto">Y tú estás invitado a celebrar este momento especial</p>
+<div class="glass inline-block rounded-full px-7 py-4 mt-8"><p class="font-semibold text-[#d94d73]">💗 Una invitación personal</p></div></div>
+</section>
+
+<section id="details" class="section bg-gradient-to-b from-[#fff7f1] via-[#fff0ea] to-[#fde2df]">
+<div class="blob bg-[#f7c1a6]/25 w-96 h-96 -left-44 -top-20"></div><div class="inner">
+<div class="text-center mb-10"><div class="text-4xl mb-3">🌸</div><h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-[#9d4662]">Los Detalles</h2><p class="mt-3 text-[#b35d76]">Todo listo para celebrar juntos</p></div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+<div class="card glass rounded-[2rem] p-7 text-center"><div class="text-5xl mb-4">🕐</div><h3 class="text-2xl font-black text-[#d94d73]">Hora</h3><p class="text-xl font-bold text-[#8f3d57] mt-2">12:00 PM</p><p class="text-sm text-[#b35d76] mt-2">Mediodía de celebración</p></div>
+<div class="card glass rounded-[2rem] p-7 text-center"><div class="text-5xl mb-4">🎂</div><h3 class="text-2xl font-black text-[#d94d73]">Fecha</h3><p class="text-xl font-bold text-[#8f3d57] mt-2">23 Agosto</p><p class="text-sm text-[#b35d76] mt-2">El día especial</p></div>
+<div class="card glass rounded-[2rem] p-7 text-center"><div class="text-5xl mb-4">👙</div><h3 class="text-2xl font-black text-[#d94d73]">Dress Code</h3><p class="text-xl font-bold text-[#8f3d57] mt-2">Traje de Baño</p><p class="text-sm text-[#b35d76] mt-2">¡Prepárate para diversión refrescante!</p></div>
+<div class="card glass rounded-[2rem] p-7 text-center"><div class="text-5xl mb-4">🌊</div><h3 class="text-2xl font-black text-[#d94d73]">Atmósfera</h3><p class="text-xl font-bold text-[#8f3d57] mt-2">¡Pura Diversión!</p><p class="text-sm text-[#b35d76] mt-2">Risas, diversión e inolvidables recuerdos</p></div>
+</div></div>
+</section>
+
+<section id="atmosphere" class="section bg-gradient-to-b from-[#fde2df] via-[#fff0ea] to-[#fff7f1]">
+<div class="blob bg-[#e85d87]/18 w-96 h-96 -right-44 -top-20"></div><div class="inner text-center">
+<div class="float text-7xl sm:text-8xl mb-5">🏊‍♀️</div>
+<h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-[#9d4662] mb-10">Prepárate para la diversión</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+<div class="vibe rounded-3xl bg-white/65 border border-[#e85d87]/15 px-6 py-5 text-lg sm:text-xl font-bold text-[#a64d68] shadow-lg">💦 Agua refrescante</div>
+<div class="vibe rounded-3xl bg-white/65 border border-[#e85d87]/15 px-6 py-5 text-lg sm:text-xl font-bold text-[#a64d68] shadow-lg">🎉 Música y baile</div>
+<div class="vibe rounded-3xl bg-white/65 border border-[#e85d87]/15 px-6 py-5 text-lg sm:text-xl font-bold text-[#a64d68] shadow-lg">🌟 Momentos inolvidables</div>
+<div class="vibe rounded-3xl bg-white/65 border border-[#e85d87]/15 px-6 py-5 text-lg sm:text-xl font-bold text-[#a64d68] shadow-lg">🎊 ¡La mejor compañía!</div>
+</div>
+<p class="mt-10 text-lg sm:text-xl text-[#b35d76] italic">Este es el evento del verano que no querrás perderte</p></div>
+</section>
+
+<section id="memories" class="section bg-gradient-to-b from-[#fde2df] via-[#fff7f1] to-[#fff7f1]">
+<div class="blob bg-[#f7c1a6]/25 w-96 h-96 -right-44 -top-20"></div><div class="blob bg-[#aa91d7]/18 w-80 h-80 -left-40 bottom-[-80px]"></div>
+<div class="inner"><div class="text-center mb-12"><div class="text-5xl mb-3">🌸</div><h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-[#9d4662]">Ahtziri a través del tiempo</h2><p class="mt-3 text-[#b35d76]">Desde niña hasta hoy, siempre radiante</p></div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-7 max-w-3xl mx-auto">
+<div class="memory-card group relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2"><img src="at1.jpg" alt="Ahtziri de niña" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"><div class="absolute inset-0 bg-gradient-to-t from-[#8f3d57]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-4"><span class="text-white font-bold text-lg">Niña Hermosa 💕</span></div></div>
+<div class="memory-card group relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2"><img src="at2.jpg" alt="Ahtziri pequeña" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"><div class="absolute inset-0 bg-gradient-to-t from-[#8f3d57]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-4"><span class="text-white font-bold text-lg">Abejita 🐝</span></div></div>
+<div class="memory-card group relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2"><img src="at3.jpg" alt="Ahtziri en la infancia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"><div class="absolute inset-0 bg-gradient-to-t from-[#8f3d57]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-4"><span class="text-white font-bold text-lg">Pura Magia ✨</span></div></div>
+<div class="memory-card group relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2"><img src="at4.jpg" alt="Pequeña Ahtziri" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"><div class="absolute inset-0 bg-gradient-to-t from-[#8f3d57]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-4"><span class="text-white font-bold text-lg">Siempre Hermosa 🌸</span></div></div>
+</div></div>
+</section>
+
+<section id="cta" class="section bg-gradient-to-b from-[#fff7f1] via-[#fde2df] to-[#fff0ea]">
+<div class="blob bg-[#e85d87]/18 w-[430px] h-[430px] -left-48 bottom-[-130px]"></div><div class="blob bg-[#f49a83]/20 w-[380px] h-[380px] -right-44 top-[-100px]"></div>
+<div class="inner text-center"><div class="text-5xl mb-4">💗</div>
+<h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-[#9d4662]">¡Confirma tu asistencia!</h2>
+<p class="text-xl text-[#b35d76] mt-4">No puedes faltar a este evento especial</p><p class="text-lg text-[#a64d68] mt-3">Esta es una invitación personal para ti</p>
+<button onclick="openWhatsApp()" class="whatsapp mt-9 inline-flex items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#e85d87] to-[#f49a83] text-white px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-black hover:scale-105 active:scale-95 transition-transform"><span class="text-2xl">📱</span><span>Confirmar por WhatsApp</span></button>
+<div class="mt-8"><p class="text-sm uppercase tracking-widest text-[#b35d76]">Número de contacto</p><p class="text-xl font-bold text-[#8f3d57] mt-1">933 156 1577</p></div>
+<footer class="mt-12 text-[#b35d76]"><p>🎂 Cumpleaños de Ahtziri • 28 años • 23 de Agosto 🎂</p><p class="mt-2">✨ Una invitación personal ✨</p></footer></div>
+</section>
+
+<script>
+const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function openWhatsApp(){
+const message=`¡SÍ, vamos! 🩷
+
+¡Confirmadísimo! 🎉🌸
+Para la fiesta de Ahtziri llegaremos con toda la actitud. 🫶🏼
+
+¡Gracias por pensar en mí! 💕`;
+window.open(`https://wa.me/9331561577?text=${encodeURIComponent(message)}`,'_blank');
+}
+const progress=document.getElementById('progress');
+function updateProgress(){const total=document.documentElement.scrollHeight-innerHeight;progress.style.width=(total>0?scrollY/total*100:0)+'%'}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+
+const sectionObserver=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.2});
+document.querySelectorAll('.section').forEach(s=>sectionObserver.observe(s));
+
+const details=document.getElementById('details');
+const cardObserver=new IntersectionObserver(es=>{if(es[0].isIntersecting){details.querySelectorAll('.card').forEach((c,i)=>setTimeout(()=>c.classList.add('show'),i*150));cardObserver.disconnect()}},{threshold:.2});
+cardObserver.observe(details);
+
+const particles=document.getElementById('particles');
+if(!reduceMotion){
+const colors=['#e85d87','#f49a83','#aa91d7','#f7c1a6','#93a58b','#ffffff'];
+for(let i=0;i<(innerWidth<640?45:90);i++){
+const p=document.createElement('span'),size=Math.random()*5+2,color=colors[Math.floor(Math.random()*colors.length)];
+p.className='particle';p.style.width=p.style.height=size+'px';p.style.left=Math.random()*100+'%';
+p.style.animationDuration=Math.random()*15+9+'s';p.style.animationDelay=Math.random()*-20+'s';
+p.style.setProperty('--drift',(Math.random()-.5)*280+'px');p.style.background=color;
+p.style.boxShadow=`0 0 ${Math.random()*10+8}px ${color}`;particles.appendChild(p);
+}}
+const hint=document.getElementById('scrollHint');
+addEventListener('scroll',()=>{if(hint)hint.style.opacity=scrollY>80?'0':'1'},{passive:true});
+
+let confettiDone=false;
+const ctaObserver=new IntersectionObserver(es=>{
+if(!es[0].isIntersecting||confettiDone||reduceMotion)return;confettiDone=true;
+const colors=['#e85d87','#f49a83','#aa91d7','#f7c1a6','#93a58b'];
+for(let i=0;i<(innerWidth<640?35:65);i++){
+const c=document.createElement('span');c.className='confetti';c.style.left=Math.random()*100+'%';
+c.style.width=Math.random()*7+5+'px';c.style.height=Math.random()*10+8+'px';
+c.style.background=colors[Math.floor(Math.random()*colors.length)];
+c.style.setProperty('--x',(Math.random()-.5)*520+'px');c.style.setProperty('--r',(Math.random()*1200-600)+'deg');
+c.style.animationDelay=Math.random()*.8+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),5000);
+}}, {threshold:.4});
+ctaObserver.observe(document.getElementById('cta'));
+</script>
+</body>
+</html>
