@@ -177,4 +177,20 @@ p.style.animationDuration=Math.random()*15+9+'s';p.style.animationDelay=Math.ran
 p.style.setProperty('--drift',(Math.random()-.5)*280+'px');p.style.background=color;
 p.style.boxShadow=`0 0 ${Math.random()*10+8}px ${color}`;particles.appendChild(p);
 }}
-const hint=documen
+const hint=document.getElementById('scrollHint');
+addEventListener('scroll',()=>{if(hint)hint.style.opacity=scrollY>80?'0':'1'},{passive:true});
+let confettiDone=false;
+const ctaObserver=new IntersectionObserver(es=>{
+if(!es[0].isIntersecting||confettiDone||reduceMotion)return;confettiDone=true;
+const colors=['#e85d87','#f49a83','#aa91d7','#f7c1a6','#93a58b'];
+for(let i=0;i<(innerWidth<640?35:65);i++){
+const c=document.createElement('span');c.className='confetti';c.style.left=Math.random()*100+'%';
+c.style.width=Math.random()*7+5+'px';c.style.height=Math.random()*10+8+'px';
+c.style.background=colors[Math.floor(Math.random()*colors.length)];
+c.style.setProperty('--x',(Math.random()-.5)*520+'px');c.style.setProperty('--r',(Math.random()*1200-600)+'deg');
+c.style.animationDelay=Math.random()*.8+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),5000);
+}}, {threshold:.4});
+ctaObserver.observe(document.getElementById('cta'));
+</script>
+</body>
+</html>
