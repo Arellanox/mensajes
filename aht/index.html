@@ -461,6 +461,140 @@ c.style.setProperty('--x',(Math.random()-.5)*520+'px');c.style.setProperty('--r'
 c.style.animationDelay=Math.random()*.8+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),5000);
 }}, {threshold:.4});
 ctaObserver.observe(document.getElementById('cta'));
+
+const photos = [
+    {
+        src: 'at1.jpg',
+        alt: 'Ahtziri de niña',
+        title: 'Niña Hermosa 💕'
+    },
+    {
+        src: 'at2.jpg',
+        alt: 'Ahtziri pequeña',
+        title: 'Mi Abeja 🐝'
+    },
+    {
+        src: 'at3.jpg',
+        alt: 'Ahtziri en la infancia',
+        title: 'Pura Magia ✨'
+    },
+    {
+        src: 'at4.jpg',
+        alt: 'Pequeña Ahtziri',
+        title: 'Siempre Hermosa 🌸'
+    }
+];
+
+let currentPhotoIndex = 0;
+
+
+function openLightbox(index) {
+
+    currentPhotoIndex = index;
+
+    const lightbox = document.getElementById('lightbox');
+
+    lightbox.classList.add('active');
+
+    updateLightbox();
+
+    document.body.style.overflow = 'hidden';
+}
+
+
+function closeLightbox() {
+
+    const lightbox = document.getElementById('lightbox');
+
+    lightbox.classList.remove('active');
+
+    document.body.style.overflow = 'auto';
+}
+
+
+function nextPhoto() {
+
+    currentPhotoIndex =
+        (currentPhotoIndex + 1) % photos.length;
+
+    updateLightbox();
+}
+
+
+function prevPhoto() {
+
+    currentPhotoIndex =
+        (currentPhotoIndex - 1 + photos.length) % photos.length;
+
+    updateLightbox();
+}
+
+
+function updateLightbox() {
+
+    const photo = photos[currentPhotoIndex];
+
+    document.getElementById('lightboxImg').src = photo.src;
+
+    document.getElementById('lightboxImg').alt = photo.alt;
+
+    document.getElementById('modalTitle').textContent = photo.title;
+
+
+    const dots =
+        document.getElementById('modalDots');
+
+    dots.innerHTML = '';
+
+
+    photos.forEach((photo, index) => {
+
+        const dot =
+            document.createElement('div');
+
+        dot.className =
+            'modal-dot' +
+            (index === currentPhotoIndex
+                ? ' active'
+                : '');
+
+        dot.onclick = () => {
+
+            currentPhotoIndex = index;
+
+            updateLightbox();
+
+        };
+
+        dots.appendChild(dot);
+
+    });
+
+}
+
+
+document.addEventListener('keydown', (event) => {
+
+    const lightbox =
+        document.getElementById('lightbox');
+
+    if (!lightbox.classList.contains('active')) {
+        return;
+    }
+
+    if (event.key === 'ArrowLeft') {
+        prevPhoto();
+    }
+
+    if (event.key === 'ArrowRight') {
+        nextPhoto();
+    }
+
+    if (event.key === 'Escape') {
+        closeLightbox();
+    }
+
+});
 </script>
 </body>
 </html>
