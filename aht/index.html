@@ -167,6 +167,310 @@ html{scroll-behavior:smooth}body{margin:0;overflow-x:hidden;background:#fff7f1;c
     cursor:pointer
 }
 
+/* =========================================
+   VISOR DE FOTOGRAFÍAS
+========================================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:99999;
+
+    background:rgba(60,25,40,.94);
+    backdrop-filter:blur(10px);
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    opacity:0;
+    transition:opacity .3s ease;
+}
+
+.modal.active{
+    display:flex;
+    opacity:1;
+}
+
+.modal-content{
+    position:relative;
+
+    width:min(90vw,900px);
+    height:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    animation:modalIn .4s cubic-bezier(.22,1,.36,1);
+}
+
+@keyframes modalIn{
+
+    from{
+        opacity:0;
+        transform:scale(.8) translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+
+}
+
+.modal-img{
+    display:block;
+
+    max-width:82vw;
+    max-height:78vh;
+
+    width:auto;
+    height:auto;
+
+    object-fit:contain;
+
+    border-radius:18px;
+
+    background:white;
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.5),
+        0 0 40px rgba(232,93,135,.25);
+}
+
+
+/* BOTÓN CERRAR */
+
+.modal-close{
+
+    position:absolute;
+
+    top:-55px;
+    right:0;
+
+    width:45px;
+    height:45px;
+
+    border:none;
+    border-radius:50%;
+
+    background:white;
+
+    color:#8f3d57;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    transition:all .3s ease;
+
+    z-index:20;
+}
+
+.modal-close:hover{
+
+    background:#e85d87;
+    color:white;
+
+    transform:scale(1.1) rotate(90deg);
+
+}
+
+
+/* BOTONES ANTERIOR / SIGUIENTE */
+
+.modal-nav{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:52px;
+    height:52px;
+
+    border:none;
+    border-radius:50%;
+
+    background:white;
+
+    color:#8f3d57;
+
+    font-size:24px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    transition:all .3s ease;
+
+    z-index:20;
+}
+
+.modal-nav:hover{
+
+    background:#e85d87;
+    color:white;
+
+    transform:translateY(-50%) scale(1.12);
+
+}
+
+.modal-prev{
+    left:-75px;
+}
+
+.modal-next{
+    right:-75px;
+}
+
+
+/* PUNTOS */
+
+.modal-dots{
+
+    position:absolute;
+
+    bottom:-50px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    gap:9px;
+
+    align-items:center;
+    justify-content:center;
+}
+
+.modal-dot{
+
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.35);
+
+    border:2px solid white;
+
+    cursor:pointer;
+
+    transition:all .3s ease;
+}
+
+.modal-dot.active{
+
+    background:#e85d87;
+
+    transform:scale(1.35);
+
+}
+
+
+/* TÍTULO DE LA FOTO */
+
+.modal-title{
+
+    position:absolute;
+
+    bottom:-85px;
+
+    left:0;
+    right:0;
+
+    text-align:center;
+
+    color:white;
+
+    font-size:17px;
+    font-weight:bold;
+
+    text-shadow:0 2px 8px rgba(0,0,0,.5);
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media(max-width:640px){
+
+    .modal{
+        padding:15px;
+    }
+
+    .modal-content{
+        width:100%;
+    }
+
+    .modal-img{
+
+        max-width:92vw;
+        max-height:70vh;
+
+        border-radius:14px;
+
+    }
+
+    .modal-close{
+
+        top:-52px;
+        right:5px;
+
+        width:40px;
+        height:40px;
+
+        font-size:20px;
+
+    }
+
+    .modal-nav{
+
+        width:42px;
+        height:42px;
+
+        font-size:19px;
+
+    }
+
+    .modal-prev{
+        left:5px;
+    }
+
+    .modal-next{
+        right:5px;
+    }
+
+    .modal-dots{
+        bottom:-40px;
+    }
+
+    .modal-title{
+
+        bottom:-72px;
+
+        font-size:15px;
+
+    }
+
+}
+
 </style>
 </head>
 <body>
